@@ -411,9 +411,6 @@
 <a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>  upgrade
 </code></pre></div>
 <h2 id="facets">Facets<a class="headerlink" href="#facets" title="Permanent link">&para;</a></h2>
-<p><code>esgpull</code> is a tool that simplifies usage of the <a href="https://esgf.github.io/esg-search/ESGF_Search_RESTful_API.html"><abbr title="Earth System Grid Federation">ESGF</abbr> Search API</a> for data discovery, and manages procedures related to downloading and storing files from <abbr title="Earth System Grid Federation">ESGF</abbr>.</p>
-<p>A <strong>dataset</strong> holds data stored in one or more <strong>files</strong>, and is described by its <em>metadata</em> in a way that follows conventions defined by the project they belong to.
-We also call a dataset's metadata its <strong>facets</strong>.</p>
 <h3 id="initialisation">Initialisation<a class="headerlink" href="#initialisation" title="Permanent link">&para;</a></h3>
 <p>You can initialise the database's <code>param</code> table, with facets' names and values using the following:</p>
 <details class="important" open="open">
@@ -457,21 +454,7 @@ We also call a dataset's metadata its <strong>facets</strong>.</p>
 </div>
 </details>
 <h2 id="running-a-query">Running a Query<a class="headerlink" href="#running-a-query" title="Permanent link">&para;</a></h2>
-<p>The <code>Query</code> class is the way to send bulk queries to the Search API<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. It is a representation for describing sets of constrained facets, or [NAME:[Value1,Value2,...]].</p>
-<p>Using 2nd footnote<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p><a href="https://esgf.github.io/esg-search/ESGF_Search_RESTful_API.html">Facets specifications</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:2">
-<p>This is a multiline paragraph with many words, every single word from here will
-be included in the second footnote, regardless of the markdown format on the
-line-breaks.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
+<p>The <code>Query</code> class is the way to send bulk queries to the <abbr title="Earth System Grid Federation">ESGF</abbr> Search API. It is a representation for describing sets of constrained facets, or [NAME:[Value1,Value2,...]].</p>
 
 
 
