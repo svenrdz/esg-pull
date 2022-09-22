@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#quick-introduction-and-overview-of-the-main-features" class="md-skip">
+        <a href="#initialisation" class="md-skip">
           Skip to content
         </a>
       
@@ -259,20 +259,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#quick-introduction-and-overview-of-the-main-features" class="md-nav__link">
-    Quick introduction and overview of the main features.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#glossary" class="md-nav__link">
-    Glossary
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#initialisation" class="md-nav__link">
     Initialisation
   </a>
@@ -280,11 +266,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#discovery-with-esgpull" class="md-nav__link">
-    Discovery with esgpull
+  <a href="#data-discovery" class="md-nav__link">
+    Data discovery
   </a>
   
-    <nav class="md-nav" aria-label="Discovery with esgpull">
+    <nav class="md-nav" aria-label="Data discovery">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -313,60 +299,10 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#the-context" class="md-nav__link">
-    The Context
-  </a>
-  
-    <nav class="md-nav" aria-label="The Context">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#narrowing-down-the-results" class="md-nav__link">
-    Narrowing down the results
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../usage/" class="md-nav__link">
-        Usage guide
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../reference/" class="md-nav__link">
-        API Reference
-      </a>
     </li>
   
 
@@ -396,20 +332,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#quick-introduction-and-overview-of-the-main-features" class="md-nav__link">
-    Quick introduction and overview of the main features.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#glossary" class="md-nav__link">
-    Glossary
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#initialisation" class="md-nav__link">
     Initialisation
   </a>
@@ -417,11 +339,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#discovery-with-esgpull" class="md-nav__link">
-    Discovery with esgpull
+  <a href="#data-discovery" class="md-nav__link">
+    Data discovery
   </a>
   
-    <nav class="md-nav" aria-label="Discovery with esgpull">
+    <nav class="md-nav" aria-label="Data discovery">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -450,26 +372,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#the-context" class="md-nav__link">
-    The Context
-  </a>
-  
-    <nav class="md-nav" aria-label="The Context">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#narrowing-down-the-results" class="md-nav__link">
-    Narrowing down the results
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -484,20 +386,22 @@
                 
 
 
-  <h1>Quickstart</h1>
-
-<h3 id="quick-introduction-and-overview-of-the-main-features">Quick introduction and overview of the main features.<a class="headerlink" href="#quick-introduction-and-overview-of-the-main-features" title="Permanent link">&para;</a></h3>
 <p><code>esgpull</code> is a tool that simplifies usage of the <a href="https://esgf.github.io/esg-search/ESGF_Search_RESTful_API.html"><abbr title="Earth System Grid Federation">ESGF</abbr> Search API</a> for data discovery, and manages procedures related to downloading and storing files from <abbr title="Earth System Grid Federation">ESGF</abbr>.</p>
-<h3 id="glossary">Glossary<a class="headerlink" href="#glossary" title="Permanent link">&para;</a></h3>
-<p><strong>Dataset</strong>: collection of <em>files</em>. It is described by its <em>metadata</em> in a way that follows conventions defined by the project it belongs to.</p>
-<p><strong>Facet</strong>: the basic element of a dataset's <em>metadata</em>. It is a tuple of two <em>string</em> values, equivalent to a python dictionary's item: <code>{name:value}</code>.</p>
-<h2 id="initialisation">Initialisation<a class="headerlink" href="#initialisation" title="Permanent link">&para;</a></h2>
-<p>Before anything, make sure <code>esgpull</code> is correctly <a href="/installation">installed</a>. Then you can run this next command to fill the database with all <em>facets</em> that can be found in <abbr title="Earth System Grid Federation">ESGF</abbr> index nodes.</p>
+<details class="glossary">
+<summary>Glossary</summary>
+<p><strong>Dataset</strong>: collection of <em>files</em>. Described by metadata that follows its project's conventions.</p>
+<p><strong>Facet</strong>: basic element of a dataset's <em>metadata</em>. Pair of strings in the form <code>name:value</code>, equivalent to a python dictionary's item.</p>
+</details>
+<h3 id="initialisation">Initialisation<a class="headerlink" href="#initialisation" title="Permanent link">&para;</a></h3>
+<p>Before anything, make sure <code>esgpull</code> is correctly <a href="/installation">installed</a>.
+Then you can run this next command to fill the database with all <em>facets</em> that can be found in <abbr title="Earth System Grid Federation">ESGF</abbr> index nodes.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ esgpull param init
 </code></pre></div>
-<h2 id="discovery-with-esgpull">Discovery with <code>esgpull</code><a class="headerlink" href="#discovery-with-esgpull" title="Permanent link">&para;</a></h2>
-<p>There are two ways to search for one or more datasets: <strong>exact</strong> and <strong>free-text</strong> search. Both are done through the <code>esgpull search</code> command.</p>
-<h3 id="exact-search">Exact search<a class="headerlink" href="#exact-search" title="Permanent link">&para;</a></h3>
+<hr />
+<h1 id="data-discovery">Data discovery<a class="headerlink" href="#data-discovery" title="Permanent link">&para;</a></h1>
+<p>There are two ways to search for one or more datasets: <strong>exact</strong> and <strong>free-text</strong> search.
+Both are done through the <code>esgpull search</code> command.</p>
+<h2 id="exact-search">Exact search<a class="headerlink" href="#exact-search" title="Permanent link">&para;</a></h2>
 <p><em>Exact search</em> is done by providing a facet, such as <code>name:value</code>, for which both are matched exactly.</p>
 <details class="note">
 <summary>What facets can be used?</summary>
@@ -505,12 +409,37 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ esgpull param list
 </code></pre></div></p>
 </details>
-<details class="example">
-<summary>Search all CMIP6 datasets</summary>
+<div class="admonition example">
+<p class="admonition-title">Search CMIP6 datasets</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ esgpull search project:CMIP6
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Found <span class="m">1493626</span> results.
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>┏━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>┃  <span class="c1"># ┃   size ┃ id                                                                                  ┃</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>┡━━━━╇━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>│  <span class="m">0</span> │  <span class="m">10</span>.2G │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.3hr.hfls.gr.v20181203              │
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>│  <span class="m">1</span> │   <span class="m">7</span>.3G │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.3hr.clt.gr.v20181203               │
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>│  <span class="m">2</span> │  <span class="m">10</span>.3G │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.cfadLidarsr532.gr.v20181203 │
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>│  <span class="m">3</span> │   <span class="m">1</span>.5G │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.clmisr.gr.v20181203         │
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>│  <span class="m">4</span> │ <span class="m">162</span>.6M │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.cllcalipso.gr.v20181203     │
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>│  <span class="m">5</span> │  <span class="m">82</span>.5M │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.clhcalipso.gr.v20181203     │
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>│  <span class="m">6</span> │  <span class="m">94</span>.7M │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.clmcalipso.gr.v20181203     │
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>│  <span class="m">7</span> │   <span class="m">1</span>.8G │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.clcalipso.gr.v20181203      │
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>│  <span class="m">8</span> │ <span class="m">136</span>.0M │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.cltcalipso.gr.v20181203     │
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>│  <span class="m">9</span> │   <span class="m">1</span>.0G │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.clisccp.gr.v20181203        │
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>│ <span class="m">10</span> │ <span class="m">651</span>.6M │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.jpdftaureliqmodis.gr.v2018… │
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>│ <span class="m">11</span> │ <span class="m">431</span>.2M │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.jpdftaureicemodis.gr.v2018… │
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>│ <span class="m">12</span> │ <span class="m">981</span>.8M │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.parasolRefl.gr.v20181203    │
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>│ <span class="m">13</span> │ <span class="m">787</span>.5G │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.hus.gr.v20181203            │
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>│ <span class="m">14</span> │ <span class="m">390</span>.1M │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.CFsubhr.hfss.gn.v20181203          │
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>│ <span class="m">15</span> │ <span class="m">379</span>.8M │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.CFsubhr.hfls.gn.v20181203          │
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>│ <span class="m">16</span> │   <span class="m">3</span>.9G │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.CFsubhr.mc.gn.v20181203            │
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>│ <span class="m">17</span> │ <span class="m">398</span>.8M │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.CFsubhr.prc.gn.v20181203           │
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>│ <span class="m">18</span> │ <span class="m">361</span>.7M │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.CFsubhr.huss.gn.v20181203          │
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>│ <span class="m">19</span> │ <span class="m">347</span>.9M │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.CFsubhr.hurs.gn.v20181203          │
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>└────┴────────┴─────────────────────────────────────────────────────────────────────────────────────┘
 </code></pre></div>
-</details>
-<h3 id="free-text-search">Free-text Search<a class="headerlink" href="#free-text-search" title="Permanent link">&para;</a></h3>
+</div>
+<h2 id="free-text-search">Free-text Search<a class="headerlink" href="#free-text-search" title="Permanent link">&para;</a></h2>
 <p><em>Free-text search</em> is done on anything you write that is not using the <code>name:value</code> syntax. Each word will be sent to the <abbr title="Earth System Grid Federation">ESGF</abbr> search API, which uses <a href="https://fr.wikipedia.org/wiki/Apache_Solr">Apache Solr</a> to match results.</p>
 <details class="warning">
 <summary>Solr syntax</summary>
@@ -519,41 +448,40 @@
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>$ esgpull search <span class="s2">&quot;surface AND temperature&quot;</span> <span class="c1"># will match BOTH `surface` and `temperature`</span>
 </code></pre></div></p>
 </details>
-<h3 id="case-sensitivity">Case sensitivity<a class="headerlink" href="#case-sensitivity" title="Permanent link">&para;</a></h3>
+<h2 id="case-sensitivity">Case sensitivity<a class="headerlink" href="#case-sensitivity" title="Permanent link">&para;</a></h2>
 <p>For <em>exact search</em>, the case must match exactly, so <code>project:cmip6</code> is going to have very different results than <code>project:CMIP6</code>.</p>
 <p>In the case of <em>free-text search</em>, the opposite is true, case is entirely insensitive.</p>
-<h2 id="the-context">The <code>Context</code><a class="headerlink" href="#the-context" title="Permanent link">&para;</a></h2>
-<p>Let's start by fetching the number of datasets in <abbr title="Earth System Grid Federation">ESGF</abbr> using the <code>Context</code> class.</p>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span> <span class="nn">esgpull</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">c</span> <span class="o">=</span> <span class="n">esgpull</span><span class="o">.</span><span class="n">Context</span><span class="p">()</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">hits</span><span class="p">)</span>
-</code></pre></div>
-<blockquote>
-<p>[1509382]</p>
-</blockquote>
-</div>
-<p>Here we just printed the number of datasets that can be downloaded. It is displayed as a list of a single number since it is the result of the <em>first query</em>.</p>
-<p>In fact, we only sent the query to a single index node<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> (defaults to IPSL), we can get results from all nodes by setting the <code>distrib</code> attribute to <code>True</code>.
-This will under the hood still send a single query, but that one will be sent to other nodes before coming back.</p>
-<div class="admonition warning inline end">
-<p>Using <code>distrib=True</code> significantly increases response time.</p>
-</div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">c</span><span class="o">.</span><span class="n">distrib</span> <span class="o">=</span> <span class="kc">True</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">hits</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="narrowing-down-the-results">Narrowing down the results<a class="headerlink" href="#narrowing-down-the-results" title="Permanent link">&para;</a></h3>
-<p>To reduce the number of search results, <em>facets</em> that you actually require, and that is currently done</p>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>An index node is ...&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
+<!-- ## The `Context` -->
+
+<!-- Let's start by fetching the number of datasets in ESGF using the `Context` class. -->
+
+<!-- !!! example -->
+<!--     ```py -->
+<!--     import esgpull -->
+
+<!--     c = esgpull.Context() -->
+<!--     print(c.hits) -->
+<!--     ``` -->
+
+<!--     > [1509382] -->
+
+<!-- Here we just printed the number of datasets that can be downloaded. It is displayed as a list of a single number since it is the result of the _first query_. -->
+
+<!-- In fact, we only sent the query to a single index node[^1] (defaults to IPSL), we can get results from all nodes by setting the `distrib` attribute to `True`. -->
+<!-- This will under the hood still send a single query, but that one will be sent to other nodes before coming back. -->
+
+<!-- !!! warning inline end "" -->
+<!--     Using `distrib=True` significantly increases response time. -->
+<!-- ```py -->
+<!-- c.distrib = True -->
+<!-- print(c.hits) -->
+<!-- ``` -->
+
+<!-- ### Narrowing down the results -->
+
+<!-- To reduce the number of search results, _facets_ that you actually require, and that is currently done -->
+
+<!-- [^1]: An index node is ... -->
 
 
 
@@ -593,21 +521,6 @@ This will under the hood still send a single query, but that one will be sent to
           </div>
         </a>
       
-      
-        
-        <a href="../usage/" class="md-footer__link md-footer__link--next" aria-label="Next: Usage guide" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Usage guide
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
       
     </nav>
   
