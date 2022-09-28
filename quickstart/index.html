@@ -314,6 +314,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#subquery-expansion" class="md-nav__link">
+    Subquery expansion
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -414,6 +421,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#subquery-expansion" class="md-nav__link">
+    Subquery expansion
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -443,8 +457,12 @@
 <p><code>esgpull</code> is a tool that simplifies usage of the <a href="https://esgf.github.io/esg-search/ESGF_Search_RESTful_API.html"><abbr title="Earth System Grid Federation">ESGF</abbr> Search API</a> for data discovery, and manages procedures related to downloading and storing files from <abbr title="Earth System Grid Federation">ESGF</abbr>.</p>
 <details class="glossary">
 <summary>Glossary</summary>
-<p><strong>Dataset</strong>: collection of <em>files</em>. Described by metadata that follows its project's conventions.</p>
-<p><strong>Facet</strong>: basic element of a dataset's <em>metadata</em>. Pair of strings in the form <code>name:value</code>, equivalent to a python dictionary's item.</p>
+<dl>
+<dt><strong>Dataset</strong></dt>
+<dd>collection of <em>files</em>. Described by metadata that follows its project's conventions.</dd>
+<dt><strong>Facet</strong></dt>
+<dd>basic element of a dataset's <em>metadata</em>. Pair of strings in the form <code>name:value</code>, equivalent to a python dictionary's item.</dd>
+</dl>
 </details>
 <h3 id="initialisation">Initialisation<a class="headerlink" href="#initialisation" title="Permanent link">&para;</a></h3>
 <p>Before anything, make sure <code>esgpull</code> is correctly <a href="/installation">installed</a>.
@@ -532,33 +550,105 @@ Both are done through the <code>esgpull search</code> command.</p>
 <p>For <em>exact search</em>, the case must match exactly, so <code>project:cmip6</code> is going to have very different results than <code>project:CMIP6</code>.</p>
 <p>In the case of <em>free-text search</em>, the opposite is true, case is entirely insensitive, and may lead to funky results.</p>
 <h2 id="selection-files">Selection files<a class="headerlink" href="#selection-files" title="Permanent link">&para;</a></h2>
-<p>When the command search becomes too limited, <strong>selection files</strong> can be used to store the search options.
-Selection files are more <em>flexible</em>, they make combining <em>multiple</em> requests into one possible.</p>
-<p>A selection file is written using <a href="https://yaml.org/spec/1.0/">Yaml/1.0</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, most of the syntax is exactly the same as the command line syntax.</p>
-<div class="highlight"><span class="filename">Selection files syntax</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">1.</span> <span class="sb">`&lt;name&gt;: &lt;value&gt;`</span> pairs are <span class="gs">__exact search__</span> terms,
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">2.</span> <span class="sb">`query: &lt;free-text&gt;`</span> is used for the <span class="ge">_free-text_</span> part,
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">3.</span> a special key <span class="sb">`requests`</span> is used to <span class="ge">_fork_</span> the query:
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="k">*</span> each subquery must be a Yaml list item
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="k">*</span> each subquery <span class="ge">_inherits_</span> all of the main query&#39;s terms
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    <span class="k">*</span> a <span class="sb">`+`</span> in front of the facet name will <span class="ge">_append_</span> its values to the main query&#39;s homonym facet
+<p>When a search command becomes unusable from using a lot of long terms, <strong>selection files</strong> should be used.
+They are more <em>flexible</em>, and can combine <em>multiple</em> requests into one, using <strong>subqueries</strong>.</p>
+<p><strong>Subqueries</strong> are extensions of the <em>main</em> query. Each subquery <em>inherits</em> all terms from the latter, and replaces any exact term using the same facet name. It is possible to <em>append</em> homonym terms, instead of replacing them, by prefixing the name with a <code>+</code> symbol.</p>
+<p>A selection file is written using either <a href="https://yaml.org/spec/1.0/">Yaml/1.0</a> or <a href="https://www.json.org/">Json</a>, Yaml is recommended for its human-readable syntax.</p>
+<div class="admonition note">
+<p class="admonition-title">Syntax Rules</p>
+<ol>
+<li>
+<dl>
+<dt>key/value pair ⇒ <strong>exact search</strong> term</dt>
+<dd><div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nt">&lt;name&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values&gt;</span><span class="w"></span>
+</code></pre></div></dd>
+</dl>
+</li>
+<li>
+<dl>
+<dt><code>query</code> keyword ⇒ <strong>free-text</strong></dt>
+<dd><div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;free-text&gt;</span><span class="w"></span>
+</code></pre></div></dd>
+</dl>
+</li>
+<li>
+<dl>
+<dt><code>requests</code> keyword ⇒ <strong>subqueries</strong></dt>
+<dd><div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;subquery_1&gt;</span><span class="w"></span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;subquery_2&gt;</span><span class="w"></span>
+</code></pre></div></dd>
+</dl>
+</li>
+<li>
+<dl>
+<dt>a subquery contains <em>only</em> exact or free-text terms</dt>
+<dd><div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_1&gt;</span><span class="w"></span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="nt">&lt;name_2&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_2&gt;</span><span class="w"></span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;free-text&gt;</span><span class="w"></span>
+</code></pre></div></dd>
+</dl>
+</li>
+<li>
+<dl>
+<dt>a subquery <em>inherits</em> all of the main query's terms</dt>
+<dd><div class="highlight"><span class="filename">Main with one subquery</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_1&gt;</span><span class="w"></span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">&lt;name_2&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_2&gt;</span><span class="w"></span>
 </code></pre></div>
+<div class="result highlight"><span class="filename">Equivalent flat syntax</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_1&gt;</span><span class="w"></span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nt">&lt;name_2&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_2&gt;</span><span class="w"></span>
+</code></pre></div></dd>
+</dl>
+</li>
+<li>
+<dl>
+<dt>an exact search term name prefixed with <code>+</code> is <em>appended</em> to the main query's homonym term</dt>
+<dd><div class="highlight"><span class="filename">Main with two subqueries</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_1&gt;</span><span class="w"></span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">&lt;name_2&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_2&gt;</span><span class="w"></span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">+&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;alt_1&gt;</span><span class="w"></span>
+</code></pre></div>
+<div class="result highlight"><span class="filename">Equivalent expanded without</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_1&gt;</span><span class="w"></span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span><span class="nt">&lt;name_2&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_2&gt;</span><span class="w"></span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_1&gt;,&lt;alt_1&gt;</span><span class="w"></span>
+</code></pre></div></dd>
+</dl>
+</li>
+</ol>
+</div>
+<h2 id="subquery-expansion">Subquery expansion<a class="headerlink" href="#subquery-expansion" title="Permanent link">&para;</a></h2>
+<p><div class="highlight"><span class="filename">Before expansion</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;value&gt;</span><span class="w"></span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;value_1&gt;</span><span class="w">       </span><span class="c1"># replaces &lt;name_1&gt; from the main query</span><span class="w"></span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">    </span><span class="nt">&lt;name_2&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;value_2&gt;</span><span class="w"></span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">    </span><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;free-text&gt;</span><span class="w"></span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">+&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;alt_value_1&gt;</span><span class="w">  </span><span class="c1"># &lt;alt_value_1&gt; is appended to &lt;name_1&gt; from the main query</span><span class="w"></span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">    </span><span class="nt">&lt;name_3&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;value_3&gt;</span><span class="w">       </span><span class="c1">#  &gt; another subquery</span><span class="w"></span>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">    </span><span class="nt">&lt;name_4&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;value_4&gt;</span><span class="w">       </span><span class="c1"># /</span><span class="w"></span>
+</code></pre></div>
+<div class="result highlight"><span class="filename">After expansion</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>
+</code></pre></div></p>
 <div class="admonition example">
 <p class="admonition-title">Selection file for IPCC experiments on surface temperatures</p>
-<p><div class="highlight"><span class="filename">surface_temperature.yaml</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;surface</span><span class="nv"> </span><span class="s">AND</span><span class="nv"> </span><span class="s">temperature&quot;</span><span class="w"></span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMIP5</span><span class="w"></span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="nt">experiment</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rcp*&quot;</span><span class="w"></span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMIP6</span><span class="w"></span>
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="nt">experiment_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ssp*&quot;</span><span class="w"></span>
+<p><div class="highlight"><span class="filename">surface_temperature.yaml</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;surface</span><span class="nv"> </span><span class="s">AND</span><span class="nv"> </span><span class="s">temperature&quot;</span><span class="w"></span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMIP5</span><span class="w"></span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">    </span><span class="nt">experiment</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rcp*&quot;</span><span class="w"></span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMIP6</span><span class="w"></span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">    </span><span class="nt">experiment_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ssp*&quot;</span><span class="w"></span>
 </code></pre></div>
-<div class="highlight"><span class="filename">Search with selection file</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>esgpull search --selection-file surface_temperature.yaml --one
+<div class="highlight"><span class="filename">Search with selection file</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>esgpull search --selection-file surface_temperature.yaml --one
 </code></pre></div>
-<div class="result highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Found 2346 datasets.
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>┏━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>┃ # ┃   size ┃ id                                                                       ┃
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>┡━━━╇━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>│ 0 │ 338.9G │ cmip5.output1.CNRM-CERFACS.CNRM-CM5.rcp26.day.atmos.day.r1i1p1.v20121001 │
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>└───┴────────┴──────────────────────────────────────────────────────────────────────────┘
+<div class="result highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>Found 2346 datasets.
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>┏━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>┃ # ┃   size ┃ id                                                                       ┃
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>┡━━━╇━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>│ 0 │ 338.9G │ cmip5.output1.CNRM-CERFACS.CNRM-CM5.rcp26.day.atmos.day.r1i1p1.v20121001 │
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>└───┴────────┴──────────────────────────────────────────────────────────────────────────┘
 </code></pre></div></p>
 </div>
 <div class="admonition tip">
@@ -599,15 +689,6 @@ It will handle most common cases, and for the others , a few manual adjustments 
 <!-- To reduce the number of search results, _facets_ that you actually require, and that is currently done -->
 
 <!-- [^1]: An index node is ... -->
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>Json is another valid option for selection files, albeit less readable,
-since Yaml is a Json extension.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
 
 
 
