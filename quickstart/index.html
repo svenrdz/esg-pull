@@ -285,6 +285,19 @@
     Free-text Search
   </a>
   
+    <nav class="md-nav" aria-label="Free-text Search">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wildcard-syntax" class="md-nav__link">
+    Wildcard syntax
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -294,8 +307,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#selection-files" class="md-nav__link">
+    Selection files
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#downloading" class="md-nav__link">
+    Downloading
+  </a>
   
 </li>
       
@@ -358,6 +385,19 @@
     Free-text Search
   </a>
   
+    <nav class="md-nav" aria-label="Free-text Search">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wildcard-syntax" class="md-nav__link">
+    Wildcard syntax
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -367,8 +407,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#selection-files" class="md-nav__link">
+    Selection files
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#downloading" class="md-nav__link">
+    Downloading
+  </a>
   
 </li>
       
@@ -395,62 +449,125 @@
 <h3 id="initialisation">Initialisation<a class="headerlink" href="#initialisation" title="Permanent link">&para;</a></h3>
 <p>Before anything, make sure <code>esgpull</code> is correctly <a href="/installation">installed</a>.
 Then you can run this next command to fill the database with all <em>facets</em> that can be found in <abbr title="Earth System Grid Federation">ESGF</abbr> index nodes.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ esgpull param init
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ esgpull facet init
 </code></pre></div>
 <hr />
 <h1 id="data-discovery">Data discovery<a class="headerlink" href="#data-discovery" title="Permanent link">&para;</a></h1>
 <p>There are two ways to search for one or more datasets: <strong>exact</strong> and <strong>free-text</strong> search.
 Both are done through the <code>esgpull search</code> command.</p>
 <h2 id="exact-search">Exact search<a class="headerlink" href="#exact-search" title="Permanent link">&para;</a></h2>
-<p><em>Exact search</em> is done by providing a facet, such as <code>name:value</code>, for which both are matched exactly.</p>
-<details class="note">
+<p><em>Exact search</em> is done by providing a facet, such as <code>&lt;name&gt;:&lt;value&gt;</code>, for which both are matched exactly.</p>
+<p><div class="highlight"><span class="filename">Search CMIP6 datasets</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>esgpull search project:CMIP6 --slice <span class="m">3</span>
+</code></pre></div>
+<div class="result highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Found 1493626 datasets.
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>┏━━━┳━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>┃ # ┃  size ┃ id                                                                                  ┃
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>┡━━━╇━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>│ 0 │ 10.2G │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.3hr.hfls.gr.v20181203              │
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>│ 1 │  7.3G │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.3hr.clt.gr.v20181203               │
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>│ 2 │ 10.3G │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.cfadLidarsr532.gr.v20181203 │
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>└───┴───────┴─────────────────────────────────────────────────────────────────────────────────────┘
+</code></pre></div></p>
+<p>Multiples values can be used, either by specifying the facet name for every value, or by separating each value with a <code>,</code> comma.</p>
+<p><div class="highlight"><span class="filename">Search multiple variables from experiment ssp245</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>esgpull search variable_id:co2mass variable_id:areacella,areacello experiment_id:ssp245 member_id:r1i1p1f1
+</code></pre></div>
+<div class="result highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Found 4 datasets.
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>┏━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>┃ # ┃   size ┃ id                                                                             ┃
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>┡━━━╇━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>│ 0 │ 101.4K │ CMIP6.ScenarioMIP.IPSL.IPSL-CM6A-LR.ssp245.r1i1p1f1.Amon.co2mass.gr.v20191003  │
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>│ 1 │  28.2K │ CMIP6.ScenarioMIP.IPSL.IPSL-CM6A-LR.ssp245.r1i1p1f1.Amon.co2mass.gr.v20190119  │
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>│ 2 │   1.5M │ CMIP6.ScenarioMIP.IPSL.IPSL-CM6A-LR.ssp245.r1i1p1f1.Ofx.areacello.gn.v20190119 │
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>│ 3 │  27.5K │ CMIP6.ScenarioMIP.IPSL.IPSL-CM6A-LR.ssp245.r1i1p1f1.fx.areacella.gr.v20190119  │
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>└───┴────────┴────────────────────────────────────────────────────────────────────────────────┘
+</code></pre></div></p>
+<details class="warning">
 <summary>What facets can be used?</summary>
-<p><code>esgpull</code> provides a handy way to print out all facet names, via:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ esgpull param list
+<p><code>esgpull</code> provides a handy way to print out all facet names:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>esgpull facet list
+</code></pre></div>
+<div class="markdown result highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="o">[</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  <span class="s1">&#39;Acknowledgement&#39;</span>,
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  <span class="s1">&#39;Campaign&#39;</span>,
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  <span class="s1">&#39;Conventions&#39;</span>,
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  <span class="s1">&#39;Period&#39;</span>,
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  <span class="s1">&#39;Science Driver&#39;</span>,
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>  <span class="s1">&#39;access&#39;</span>,
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>  <span class="s1">&#39;activity&#39;</span>,
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>  <span class="s1">&#39;activity_drs&#39;</span>,
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>  <span class="s1">&#39;activity_id&#39;</span>,
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>  ...
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="o">]</span>
 </code></pre></div></p>
 </details>
-<div class="admonition example">
-<p class="admonition-title">Search CMIP6 datasets</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ esgpull search project:CMIP6
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Found <span class="m">1493626</span> results.
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>┏━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>┃  <span class="c1"># ┃   size ┃ id                                                                                  ┃</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>┡━━━━╇━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>│  <span class="m">0</span> │  <span class="m">10</span>.2G │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.3hr.hfls.gr.v20181203              │
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>│  <span class="m">1</span> │   <span class="m">7</span>.3G │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.3hr.clt.gr.v20181203               │
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>│  <span class="m">2</span> │  <span class="m">10</span>.3G │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.cfadLidarsr532.gr.v20181203 │
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>│  <span class="m">3</span> │   <span class="m">1</span>.5G │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.clmisr.gr.v20181203         │
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>│  <span class="m">4</span> │ <span class="m">162</span>.6M │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.cllcalipso.gr.v20181203     │
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>│  <span class="m">5</span> │  <span class="m">82</span>.5M │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.clhcalipso.gr.v20181203     │
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>│  <span class="m">6</span> │  <span class="m">94</span>.7M │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.clmcalipso.gr.v20181203     │
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>│  <span class="m">7</span> │   <span class="m">1</span>.8G │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.clcalipso.gr.v20181203      │
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>│  <span class="m">8</span> │ <span class="m">136</span>.0M │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.cltcalipso.gr.v20181203     │
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>│  <span class="m">9</span> │   <span class="m">1</span>.0G │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.clisccp.gr.v20181203        │
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>│ <span class="m">10</span> │ <span class="m">651</span>.6M │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.jpdftaureliqmodis.gr.v2018… │
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>│ <span class="m">11</span> │ <span class="m">431</span>.2M │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.jpdftaureicemodis.gr.v2018… │
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>│ <span class="m">12</span> │ <span class="m">981</span>.8M │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.parasolRefl.gr.v20181203    │
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>│ <span class="m">13</span> │ <span class="m">787</span>.5G │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.hus.gr.v20181203            │
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>│ <span class="m">14</span> │ <span class="m">390</span>.1M │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.CFsubhr.hfss.gn.v20181203          │
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>│ <span class="m">15</span> │ <span class="m">379</span>.8M │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.CFsubhr.hfls.gn.v20181203          │
-<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>│ <span class="m">16</span> │   <span class="m">3</span>.9G │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.CFsubhr.mc.gn.v20181203            │
-<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>│ <span class="m">17</span> │ <span class="m">398</span>.8M │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.CFsubhr.prc.gn.v20181203           │
-<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>│ <span class="m">18</span> │ <span class="m">361</span>.7M │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.CFsubhr.huss.gn.v20181203          │
-<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>│ <span class="m">19</span> │ <span class="m">347</span>.9M │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.CFsubhr.hurs.gn.v20181203          │
-<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>└────┴────────┴─────────────────────────────────────────────────────────────────────────────────────┘
-</code></pre></div>
-</div>
 <h2 id="free-text-search">Free-text Search<a class="headerlink" href="#free-text-search" title="Permanent link">&para;</a></h2>
 <p><em>Free-text search</em> is done on anything you write that is not using the <code>name:value</code> syntax. Each word will be sent to the <abbr title="Earth System Grid Federation">ESGF</abbr> search API, which uses <a href="https://fr.wikipedia.org/wiki/Apache_Solr">Apache Solr</a> to match results.</p>
 <details class="warning">
 <summary>Solr syntax</summary>
-<p>It's important to know that solr will match the presence of any word, separated by a whitespace. To match <strong>all</strong> the words, they must be written between quotes and separated with the keyword <code>AND</code>:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ esgpull search surface temperature <span class="c1"># will match either `surface` or `temperature`</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>$ esgpull search <span class="s2">&quot;surface AND temperature&quot;</span> <span class="c1"># will match BOTH `surface` and `temperature`</span>
+<p>It's important to know that <em>Solr</em> will try to match any of the search terms.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>esgpull search surface temperature <span class="c1"># will match either `surface` or `temperature`</span>
+</code></pre></div>
+<p>To match <strong>all</strong> the words, they must be written between quotes and separated with the keyword <code>AND</code>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>esgpull search <span class="s2">&quot;surface AND temperature&quot;</span> <span class="c1"># will match BOTH `surface` and `temperature`</span>
 </code></pre></div></p>
 </details>
+<h3 id="wildcard-syntax">Wildcard syntax<a class="headerlink" href="#wildcard-syntax" title="Permanent link">&para;</a></h3>
+<p>A <em>wildcard</em> <code>*</code> can be used in both exact and free-text search, allowing for more controllable search results.</p>
+<p>Note that on most shells, the wildcard symbol should be inside <code>"</code> quotes, to escape it from being expanded by the shell before <code>esgpull</code> receives any input.</p>
+<p><div class="highlight"><span class="filename">All initializations for areacella variable from piControl experiments</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>esgpull search <span class="s2">&quot;member_id:r1i*p1f1&quot;</span> table_id:fx variable_id:areacella experiment_id:piControl
+</code></pre></div>
+<div class="result highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Found 6 datasets.
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>┏━━━┳━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>┃ # ┃  size ┃ id                                                                           ┃
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>┡━━━╇━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>│ 0 │ 27.8K │ CMIP6.CMIP.IPSL.IPSL-CM6A-LR.piControl.r1i2p1f1.fx.areacella.gr.v20190319    │
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>│ 1 │ 26.2K │ CMIP6.CMIP.IPSL.IPSL-CM6A-LR.piControl.r1i1p1f1.fx.areacella.gr.v20180802    │
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>│ 2 │ 26.2K │ CMIP6.CMIP.IPSL.IPSL-CM6A-LR.piControl.r1i1p1f1.fx.areacella.gr.v20181022    │
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>│ 3 │ 26.2K │ CMIP6.CMIP.IPSL.IPSL-CM6A-LR.piControl.r1i1p1f1.fx.areacella.gr.v20181123    │
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>│ 4 │ 28.0K │ CMIP6.CMIP.IPSL.IPSL-CM6A-LR.piControl.r1i1p1f1.fx.areacella.gr.v20200326    │
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>│ 5 │ 27.5K │ CMIP6.CMIP.IPSL.IPSL-CM5A2-INCA.piControl.r1i1p1f1.fx.areacella.gr.v20210216 │
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>└───┴───────┴──────────────────────────────────────────────────────────────────────────────┘
+</code></pre></div></p>
 <h2 id="case-sensitivity">Case sensitivity<a class="headerlink" href="#case-sensitivity" title="Permanent link">&para;</a></h2>
 <p>For <em>exact search</em>, the case must match exactly, so <code>project:cmip6</code> is going to have very different results than <code>project:CMIP6</code>.</p>
-<p>In the case of <em>free-text search</em>, the opposite is true, case is entirely insensitive.</p>
+<p>In the case of <em>free-text search</em>, the opposite is true, case is entirely insensitive, and may lead to funky results.</p>
+<h2 id="selection-files">Selection files<a class="headerlink" href="#selection-files" title="Permanent link">&para;</a></h2>
+<p>When the command search becomes too limited, <strong>selection files</strong> can be used to store the search options.
+Selection files are more <em>flexible</em>, they make combining <em>multiple</em> requests into one possible.</p>
+<p>A selection file is written using <a href="https://yaml.org/spec/1.0/">Yaml/1.0</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, most of the syntax is exactly the same as the command line syntax.</p>
+<div class="highlight"><span class="filename">Selection files syntax</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">1.</span> <span class="sb">`&lt;name&gt;: &lt;value&gt;`</span> pairs are <span class="gs">__exact search__</span> terms,
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">2.</span> <span class="sb">`query: &lt;free-text&gt;`</span> is used for the <span class="ge">_free-text_</span> part,
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">3.</span> a special key <span class="sb">`requests`</span> is used to <span class="ge">_fork_</span> the query:
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="k">*</span> each subquery must be a Yaml list item
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="k">*</span> each subquery <span class="ge">_inherits_</span> all of the main query&#39;s terms
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    <span class="k">*</span> a <span class="sb">`+`</span> in front of the facet name will <span class="ge">_append_</span> its values to the main query&#39;s homonym facet
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Selection file for IPCC experiments on surface temperatures</p>
+<p><div class="highlight"><span class="filename">surface_temperature.yaml</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;surface</span><span class="nv"> </span><span class="s">AND</span><span class="nv"> </span><span class="s">temperature&quot;</span><span class="w"></span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMIP5</span><span class="w"></span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="nt">experiment</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rcp*&quot;</span><span class="w"></span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMIP6</span><span class="w"></span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="nt">experiment_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ssp*&quot;</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><span class="filename">Search with selection file</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>esgpull search --selection-file surface_temperature.yaml --one
+</code></pre></div>
+<div class="result highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Found 2346 datasets.
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>┏━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>┃ # ┃   size ┃ id                                                                       ┃
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>┡━━━╇━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>│ 0 │ 338.9G │ cmip5.output1.CNRM-CERFACS.CNRM-CM5.rcp26.day.atmos.day.r1i1p1.v20121001 │
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>└───┴────────┴──────────────────────────────────────────────────────────────────────────┘
+</code></pre></div></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Synda users</p>
+<p>Selection files' syntax is quite different from those <code>synda</code> uses.</p>
+<p>The <code>translate</code> tool can quickly craft working files from existing ones.
+It will handle most common cases, and for the others , a few manual adjustments should fix it.</p>
+</div>
+<h1 id="downloading">Downloading<a class="headerlink" href="#downloading" title="Permanent link">&para;</a></h1>
 <!-- ## The `Context` -->
 
 <!-- Let's start by fetching the number of datasets in ESGF using the `Context` class. -->
@@ -482,6 +599,15 @@ Both are done through the <code>esgpull search</code> command.</p>
 <!-- To reduce the number of search results, _facets_ that you actually require, and that is currently done -->
 
 <!-- [^1]: An index node is ... -->
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Json is another valid option for selection files, albeit less readable,
+since Yaml is a Json extension.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
 
