@@ -314,13 +314,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#subquery-expansion" class="md-nav__link">
-    Subquery expansion
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -417,13 +410,6 @@
           <li class="md-nav__item">
   <a href="#selection-files" class="md-nav__link">
     Selection files
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#subquery-expansion" class="md-nav__link">
-    Subquery expansion
   </a>
   
 </li>
@@ -619,36 +605,23 @@ They are more <em>flexible</em>, and can combine <em>multiple</em> requests into
 </li>
 </ol>
 </div>
-<h2 id="subquery-expansion">Subquery expansion<a class="headerlink" href="#subquery-expansion" title="Permanent link">&para;</a></h2>
-<p><div class="highlight"><span class="filename">Before expansion</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;value&gt;</span><span class="w"></span>
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;value_1&gt;</span><span class="w">       </span><span class="c1"># replaces &lt;name_1&gt; from the main query</span><span class="w"></span>
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">    </span><span class="nt">&lt;name_2&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;value_2&gt;</span><span class="w"></span>
-<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">    </span><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;free-text&gt;</span><span class="w"></span>
-<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>
-<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">+&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;alt_value_1&gt;</span><span class="w">  </span><span class="c1"># &lt;alt_value_1&gt; is appended to &lt;name_1&gt; from the main query</span><span class="w"></span>
-<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">    </span><span class="nt">&lt;name_3&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;value_3&gt;</span><span class="w">       </span><span class="c1">#  &gt; another subquery</span><span class="w"></span>
-<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">    </span><span class="nt">&lt;name_4&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;value_4&gt;</span><span class="w">       </span><span class="c1"># /</span><span class="w"></span>
-</code></pre></div>
-<div class="result highlight"><span class="filename">After expansion</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>
-</code></pre></div></p>
 <div class="admonition example">
 <p class="admonition-title">Selection file for IPCC experiments on surface temperatures</p>
-<p><div class="highlight"><span class="filename">surface_temperature.yaml</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;surface</span><span class="nv"> </span><span class="s">AND</span><span class="nv"> </span><span class="s">temperature&quot;</span><span class="w"></span>
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMIP5</span><span class="w"></span>
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">    </span><span class="nt">experiment</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rcp*&quot;</span><span class="w"></span>
-<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMIP6</span><span class="w"></span>
-<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">    </span><span class="nt">experiment_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ssp*&quot;</span><span class="w"></span>
+<p><div class="highlight"><span class="filename">surface_temperature.yaml</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;surface</span><span class="nv"> </span><span class="s">AND</span><span class="nv"> </span><span class="s">temperature&quot;</span><span class="w"></span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMIP5</span><span class="w"></span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">    </span><span class="nt">experiment</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rcp*&quot;</span><span class="w"></span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMIP6</span><span class="w"></span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">    </span><span class="nt">experiment_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ssp*&quot;</span><span class="w"></span>
 </code></pre></div>
-<div class="highlight"><span class="filename">Search with selection file</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>esgpull search --selection-file surface_temperature.yaml --one
+<div class="highlight"><span class="filename">Search with selection file</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>esgpull search --selection-file surface_temperature.yaml --one
 </code></pre></div>
-<div class="result highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>Found 2346 datasets.
-<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>┏━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>┃ # ┃   size ┃ id                                                                       ┃
-<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>┡━━━╇━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
-<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>│ 0 │ 338.9G │ cmip5.output1.CNRM-CERFACS.CNRM-CM5.rcp26.day.atmos.day.r1i1p1.v20121001 │
-<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>└───┴────────┴──────────────────────────────────────────────────────────────────────────┘
+<div class="result highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Found 2346 datasets.
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>┏━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>┃ # ┃   size ┃ id                                                                       ┃
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>┡━━━╇━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>│ 0 │ 338.9G │ cmip5.output1.CNRM-CERFACS.CNRM-CM5.rcp26.day.atmos.day.r1i1p1.v20121001 │
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>└───┴────────┴──────────────────────────────────────────────────────────────────────────┘
 </code></pre></div></p>
 </div>
 <div class="admonition tip">
