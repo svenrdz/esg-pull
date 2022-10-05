@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
     
     
       
@@ -17,13 +17,14 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.69437709.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.20d9efc8.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
         
       
       
+
     
     
     
@@ -36,6 +37,7 @@
     
       
 
+    
     
     
   </head>
@@ -138,7 +140,7 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -272,60 +274,6 @@
     Data discovery
   </a>
   
-    <nav class="md-nav" aria-label="Data discovery">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#facet-search" class="md-nav__link">
-    Facet search
-  </a>
-  
-    <nav class="md-nav" aria-label="Facet search">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#multiple-values-for-a-facet" class="md-nav__link">
-    Multiple values for a facet
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#free-text-search" class="md-nav__link">
-    Free-text search
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#wildcard-syntax" class="md-nav__link">
-    Wildcard syntax
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#case-sensitivity" class="md-nav__link">
-    Case sensitivity
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#selection-files" class="md-nav__link">
-    Selection files
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -339,6 +287,36 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../search/" class="md-nav__link">
+        Data discovery
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../download/" class="md-nav__link">
+        Download
+      </a>
     </li>
   
 
@@ -379,60 +357,6 @@
     Data discovery
   </a>
   
-    <nav class="md-nav" aria-label="Data discovery">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#facet-search" class="md-nav__link">
-    Facet search
-  </a>
-  
-    <nav class="md-nav" aria-label="Facet search">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#multiple-values-for-a-facet" class="md-nav__link">
-    Multiple values for a facet
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#free-text-search" class="md-nav__link">
-    Free-text search
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#wildcard-syntax" class="md-nav__link">
-    Wildcard syntax
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#case-sensitivity" class="md-nav__link">
-    Case sensitivity
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#selection-files" class="md-nav__link">
-    Selection files
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -450,360 +374,46 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
+                  
 
+
+  <h1>Quickstart</h1>
 
 <p><code>esgpull</code> is a tool that simplifies usage of the <a href="https://esgf.github.io/esg-search/ESGF_Search_RESTful_API.html"><abbr title="Earth System Grid Federation">ESGF</abbr> Search API</a> for data discovery, and manages procedures related to downloading and storing files from <abbr title="Earth System Grid Federation">ESGF</abbr>.</p>
-<details class="glossary">
-<summary>Glossary</summary>
+<div class="admonition glossary">
+<p class="admonition-title">Glossary</p>
 <dl>
 <dt><strong>Dataset</strong></dt>
 <dd>collection of <em>files</em>. Described by metadata that follows its project's conventions.</dd>
 <dt><strong>Facet</strong></dt>
 <dd>basic element of a dataset's <em>metadata</em>. Pair of strings in the form <code>name:value</code>, equivalent to a python dictionary's item.</dd>
 </dl>
-</details>
-<h3 id="initialisation">Initialisation<a class="headerlink" href="#initialisation" title="Permanent link">&para;</a></h3>
+</div>
+<h2 id="initialisation">Initialisation<a class="headerlink" href="#initialisation" title="Permanent link">&para;</a></h2>
 <p>Before anything, make sure <code>esgpull</code> is correctly <a href="/installation">installed</a>.
 Then you can run this next command to fill the database with all <em>facets</em> that can be found in <abbr title="Earth System Grid Federation">ESGF</abbr> index nodes.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ esgpull facet init
+<div class="highlight"><span class="filename">Initialize facets</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>esgpull facet init
 </code></pre></div>
-<hr />
-<h1 id="data-discovery">Data discovery<a class="headerlink" href="#data-discovery" title="Permanent link">&para;</a></h1>
-<p>There are two ways to search for one or more datasets: <strong>facet</strong> and <strong>free-text</strong> search.
-Both are done through the <code>esgpull search</code> command.</p>
-<h2 id="facet-search">Facet search<a class="headerlink" href="#facet-search" title="Permanent link">&para;</a></h2>
-<p><em>Facet search</em> is performed with all terms using the facet syntax <code>&lt;name&gt;:&lt;value&gt;</code>, for which both name and value are matched exactly.</p>
-<p><div class="highlight"><span class="filename">Search CMIP6 datasets</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>esgpull search project:CMIP6 --slice <span class="m">3</span>
-</code></pre></div>
-<div class="result highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Found 1493626 datasets.
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>┏━━━┳━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>┃ # ┃  size ┃ id                                                                                  ┃
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>┡━━━╇━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>│ 0 │ 10.2G │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.3hr.hfls.gr.v20181203              │
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>│ 1 │  7.3G │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.3hr.clt.gr.v20181203               │
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>│ 2 │ 10.3G │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.cfadLidarsr532.gr.v20181203 │
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>└───┴───────┴─────────────────────────────────────────────────────────────────────────────────────┘
-</code></pre></div></p>
-<h3 id="multiple-values-for-a-facet">Multiple values for a facet<a class="headerlink" href="#multiple-values-for-a-facet" title="Permanent link">&para;</a></h3>
-<p>Multiples values can be used, either by specifying the facet name for every value, or by separating each value with a <code>,</code> comma.</p>
-<div class="grid">
-    <div>
-        <div class="highlight"><span class="filename">Single variable c2h2</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>esgpull search variable_id:c2h2 -0
-</code></pre></div>
-        <div class="markdown result highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Found <span class="m">5</span> datasets.
-</code></pre></div>
-    </div>
-    <div>
-        <div class="highlight"><span class="filename">Single variable c2h6</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>esgpull search variable_id:c2h6 -0
-</code></pre></div>
-        <div class="markdown result highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Found <span class="m">5</span> datasets.
-</code></pre></div>
-    </div>
-</div>
-<p><div class="highlight"><span class="filename">Both variables c2h2 and c2h6</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>esgpull search variable_id:c2h2 variable_id:c2h6 -0
-</code></pre></div>
-<div class="markdown result highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Found <span class="m">10</span> datasets.
-</code></pre></div></p>
-<details class="warning">
-<summary>What facets can be used?</summary>
-<p><code>esgpull</code> provides a handy way to print out all facet names:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>esgpull facet list
-</code></pre></div>
-<div class="markdown result highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="o">[</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>  <span class="s1">&#39;Acknowledgement&#39;</span>,
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>  <span class="s1">&#39;Campaign&#39;</span>,
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>  <span class="s1">&#39;Conventions&#39;</span>,
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>  <span class="s1">&#39;Period&#39;</span>,
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>  <span class="s1">&#39;Science Driver&#39;</span>,
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>  <span class="s1">&#39;access&#39;</span>,
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>  <span class="s1">&#39;activity&#39;</span>,
-<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>  <span class="s1">&#39;activity_drs&#39;</span>,
-<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>  <span class="s1">&#39;activity_id&#39;</span>,
-<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>  ...
-<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="o">]</span>
-</code></pre></div></p>
-</details>
-<h2 id="free-text-search">Free-text search<a class="headerlink" href="#free-text-search" title="Permanent link">&para;</a></h2>
-<p><em>Free-text search</em> is performed on any term <em>not</em> using the <code>&lt;name&gt;:&lt;value&gt;</code> syntax. Each term is sent to the <abbr title="Earth System Grid Federation">ESGF</abbr> search API, which uses <a href="https://fr.wikipedia.org/wiki/Apache_Solr">Apache Solr</a> to match results.</p>
-<div class="admonition warning">
-<p class="admonition-title">Solr syntax</p>
-<p><em>Solr</em> will always try to match any of the search terms.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>esgpull search surface temperature <span class="c1"># will match either `surface` or `temperature`</span>
-</code></pre></div>
-<p>To make sure <strong>all</strong> the words are matched, terms must be separated with <code>AND</code> and written between quotes
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>esgpull search <span class="s2">&quot;surface AND temperature&quot;</span> <span class="c1"># will match BOTH `surface` and `temperature`</span>
-</code></pre></div></p>
-</div>
-<h2 id="wildcard-syntax">Wildcard syntax<a class="headerlink" href="#wildcard-syntax" title="Permanent link">&para;</a></h2>
-<p>A <em>wildcard</em> <code>*</code> can be used in both facet (value only) and free-text search, allowing for more controllable search results.</p>
-<p>Note that on most shells, the wildcard symbol should be inside <code>"</code> quotes, to escape it from being expanded by the shell before <code>esgpull</code> receives any input.</p>
-<p><div class="highlight"><span class="filename">All initializations for areacella variable from piControl experiments</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>esgpull search <span class="s2">&quot;member_id:r1i*p1f1&quot;</span> table_id:fx variable_id:areacella experiment_id:piControl
-</code></pre></div>
-<div class="result highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Found 6 datasets.
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>┏━━━┳━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>┃ # ┃  size ┃ id                                                                           ┃
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>┡━━━╇━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>│ 0 │ 27.8K │ CMIP6.CMIP.IPSL.IPSL-CM6A-LR.piControl.r1i2p1f1.fx.areacella.gr.v20190319    │
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>│ 1 │ 26.2K │ CMIP6.CMIP.IPSL.IPSL-CM6A-LR.piControl.r1i1p1f1.fx.areacella.gr.v20180802    │
-<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>│ 2 │ 26.2K │ CMIP6.CMIP.IPSL.IPSL-CM6A-LR.piControl.r1i1p1f1.fx.areacella.gr.v20181022    │
-<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>│ 3 │ 26.2K │ CMIP6.CMIP.IPSL.IPSL-CM6A-LR.piControl.r1i1p1f1.fx.areacella.gr.v20181123    │
-<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>│ 4 │ 28.0K │ CMIP6.CMIP.IPSL.IPSL-CM6A-LR.piControl.r1i1p1f1.fx.areacella.gr.v20200326    │
-<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>│ 5 │ 27.5K │ CMIP6.CMIP.IPSL.IPSL-CM5A2-INCA.piControl.r1i1p1f1.fx.areacella.gr.v20210216 │
-<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>└───┴───────┴──────────────────────────────────────────────────────────────────────────────┘
-</code></pre></div></p>
-<h2 id="case-sensitivity">Case sensitivity<a class="headerlink" href="#case-sensitivity" title="Permanent link">&para;</a></h2>
-<p>For <em>facet search</em>, the case must match exactly, so <code>project:cmip6</code> will give entirely different results than <code>project:CMIP6</code>.</p>
-<p>In the case of <em>free-text search</em>, the opposite is true, case is entirely insensitive, and may lead to funky results.</p>
-<h2 id="selection-files">Selection files<a class="headerlink" href="#selection-files" title="Permanent link">&para;</a></h2>
-<p>While the search command is an already powerful tool for data discovery, its limitations come up quite often. Overcoming those limitations is the primary reason for using <strong>selection files</strong>, a multi-request description syntax.</p>
-<p>With its <strong>subrequests</strong>, a selection file is conceptually similar to a <em>single-level tree structure</em>, for which each subrequest is a leaf that specializes the root request.</p>
-<p>The number of requests sent to <abbr title="Earth System Grid Federation">ESGF</abbr> after expanding the <em>subrequests</em> is equal to the number of <em>subrequests</em>.</p>
-<p>A selection file is written using either <a href="https://yaml.org/spec/1.0/">Yaml/1.0</a> or <a href="https://www.json.org/">Json</a>, Yaml is recommended for its human-readable syntax.</p>
-<div class="admonition note">
-<p class="admonition-title">Syntax Rules</p>
-<ol>
-<li>
-<dl>
-<dt>key/value pair ⇒ <strong>facet search</strong> term</dt>
-<dd><div class="grid">
-    <div class="highlight"><span class="filename">Yaml</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nt">&lt;name&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values&gt;</span><span class="w"></span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Json</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span><span class="nt">&quot;&lt;name&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values&gt;&quot;</span><span class="w"></span>
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</div></dd>
-</dl>
-</li>
-<li>
-<dl>
-<dt><code>query</code> keyword ⇒ <strong>free-text</strong></dt>
-<dd><div class="grid">
-    <div class="highlight"><span class="filename">Yaml</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;free-text&gt;</span><span class="w"></span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Json</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;free-text&gt;&quot;</span><span class="w"></span>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</div></dd>
-</dl>
-</li>
-<li>
-<dl>
-<dt><code>requests</code> keyword ⇒ <strong>subrequest</strong> list</dt>
-<dd><div class="grid">
-    <div class="highlight"><span class="filename">Yaml</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;request_1&gt;</span><span class="w"></span>
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;request_2&gt;</span><span class="w"></span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Json</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">  </span><span class="nt">&quot;requests&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">    </span><span class="s2">&quot;&lt;request_1&gt;&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">    </span><span class="s2">&quot;&lt;request_2&gt;&quot;</span><span class="w"></span>
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">  </span><span class="p">]</span><span class="w"></span>
-<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</div></dd>
-</dl>
-</li>
-<li>
-<dl>
-<dt><em>subrequests</em> accept <strong>only</strong> facets or free-text (nesting disallowed)</dt>
-<dd><div class="grid">
-    <div class="highlight"><span class="filename">Yaml</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_1&gt;</span><span class="w"></span>
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">    </span><span class="nt">&lt;name_2&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_2&gt;</span><span class="w"></span>
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">    </span><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;free-text&gt;</span><span class="w"></span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Json</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">  </span><span class="nt">&quot;requests&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">      </span><span class="nt">&quot;&lt;name_1&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_1&gt;&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">      </span><span class="nt">&quot;&lt;name_2&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_2&gt;&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">      </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;free-text&gt;&quot;</span><span class="w"></span>
-<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="w">  </span><span class="p">]</span><span class="w"></span>
-<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</div></dd>
-</dl>
-</li>
-<li>
-<dl>
-<dt>each <em>subquery</em> <strong>inherits</strong> the root request terms</dt>
-<dd><div class="grid">
-    <div class="highlight"><span class="filename">Yaml</span><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_1&gt;</span><span class="w"></span>
-<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">&lt;name_2&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_2&gt;</span><span class="w"></span>
-<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">&lt;name_3&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_3&gt;</span><span class="w"></span>
-<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;free-text&gt;</span><span class="w"></span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Json</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">  </span><span class="nt">&quot;&lt;name_1&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_1&gt;&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">  </span><span class="nt">&quot;requests&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="w">      </span><span class="nt">&quot;&lt;name_2&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_2&gt;&quot;</span><span class="w"></span>
-<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="w">    </span><span class="p">},</span><span class="w"></span>
-<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="w">      </span><span class="nt">&quot;&lt;name_3&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_3&gt;&quot;</span><span class="w"></span>
-<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="w">    </span><span class="p">},</span><span class="w"></span>
-<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="w">      </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;free-text&gt;&quot;</span><span class="w"></span>
-<a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a><span class="w">  </span><span class="p">]</span><span class="w"></span>
-<a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Expanded query 1</span><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_1&gt;</span><span class="w"></span>
-<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="nt">&lt;name_2&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_2&gt;</span><span class="w"></span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Expanded query 1</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">  </span><span class="nt">&quot;&lt;name_1&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_1&gt;&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">  </span><span class="nt">&quot;&lt;name_2&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_2&gt;&quot;</span><span class="w"></span>
-<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Expanded query 2</span><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_1&gt;</span><span class="w"></span>
-<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="nt">&lt;name_3&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_3&gt;</span><span class="w"></span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Expanded query 2</span><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="w">  </span><span class="nt">&quot;&lt;name_1&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_1&gt;&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="w">  </span><span class="nt">&quot;&lt;name_3&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_3&gt;&quot;</span><span class="w"></span>
-<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Expanded query 3</span><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_1&gt;</span><span class="w"></span>
-<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;free-text&gt;</span><span class="w"></span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Expanded query 3</span><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="w">  </span><span class="nt">&quot;&lt;name_1&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_1&gt;&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w">  </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;free-text&gt;&quot;</span><span class="w"></span>
-<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</div></dd>
-</dl>
-</li>
-<li>
-<dl>
-<dt><em>prefixing</em> a name with <code>+</code> ⇒ <em>append</em> values to the root request homonym term</dt>
-<dd><div class="grid">
-    <div class="highlight"><span class="filename">Yaml</span><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_1&gt;</span><span class="w"></span>
-<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_replaced&gt;</span><span class="w"></span>
-<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">    </span><span class="nt">&lt;name_2&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_2&gt;</span><span class="w"></span>
-<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">+&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_appended&gt;</span><span class="w"></span>
-<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">&lt;name_3&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_3&gt;</span><span class="w"></span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Json</span><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="w">  </span><span class="nt">&quot;&lt;name_1&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_1&gt;&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="w">  </span><span class="nt">&quot;requests&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="w">      </span><span class="nt">&quot;&lt;name_1&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_replaced&gt;&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="w">      </span><span class="nt">&quot;&lt;name_2&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_2&gt;&quot;</span><span class="w"></span>
-<a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="w">    </span><span class="p">},</span><span class="w"></span>
-<a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a><span class="w">      </span><span class="nt">&quot;+&lt;name_1&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_appended&gt;&quot;</span><span class="w"></span>
-<a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a><span class="w">    </span><span class="p">},</span><span class="w"></span>
-<a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a><span class="w">      </span><span class="nt">&quot;&lt;name_3&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_3&gt;&quot;</span><span class="w"></span>
-<a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-32-14" name="__codelineno-32-14" href="#__codelineno-32-14"></a><span class="w">  </span><span class="p">]</span><span class="w"></span>
-<a id="__codelineno-32-15" name="__codelineno-32-15" href="#__codelineno-32-15"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Expanded request 1</span><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_replaced&gt;</span><span class="w"></span>
-<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="nt">&lt;name_2&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_2&gt;</span><span class="w"></span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Expanded request 1</span><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="w">  </span><span class="nt">&quot;&lt;name_1&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_replaced&gt;&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="w">  </span><span class="nt">&quot;&lt;name_2&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_2&gt;&quot;</span><span class="w"></span>
-<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Expanded request 2</span><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_1&gt;,&lt;values_appended&gt;</span><span class="w"></span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Expanded request 2</span><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="w">  </span><span class="nt">&quot;&lt;name_1&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_1&gt;,&lt;values_appended&gt;&quot;</span><span class="w"></span>
-<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Expanded request 3</span><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_1&gt;</span><span class="w"></span>
-<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="nt">&lt;name_3&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_3&gt;</span><span class="w"></span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Expanded request 3</span><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="w">  </span><span class="nt">&quot;&lt;name_1&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_1&gt;&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="w">  </span><span class="nt">&quot;&lt;name_3&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_3&gt;&quot;</span><span class="w"></span>
-<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</div></dd>
-</dl>
-</li>
-</ol>
-</div>
-<div class="admonition example">
-<p class="admonition-title">Selection file for IPCC experiments on surface temperatures</p>
-<p><div class="highlight"><span class="filename">surface_temperature.yaml</span><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;surface</span><span class="nv"> </span><span class="s">AND</span><span class="nv"> </span><span class="s">temperature&quot;</span><span class="w"></span>
-<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMIP5</span><span class="w"></span>
-<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="w">    </span><span class="nt">experiment</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rcp*&quot;</span><span class="w"></span>
-<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMIP6</span><span class="w"></span>
-<a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a><span class="w">    </span><span class="nt">experiment_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ssp*&quot;</span><span class="w"></span>
-</code></pre></div>
-<div class="highlight"><span class="filename">Search with selection file</span><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>esgpull search --selection-file surface_temperature.yaml --one
-</code></pre></div>
-<div class="result highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>Found 2346 datasets.
-<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>┏━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>┃ # ┃   size ┃ id                                                                       ┃
-<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>┡━━━╇━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
-<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a>│ 0 │ 338.9G │ cmip5.output1.CNRM-CERFACS.CNRM-CM5.rcp26.day.atmos.day.r1i1p1.v20121001 │
-<a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a>└───┴────────┴──────────────────────────────────────────────────────────────────────────┘
-</code></pre></div></p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Synda users</p>
-<p>Since the syntax is completely different from <code>synda</code> selection files, the <code>translate</code> tool is provided.</p>
-<p>It will handle most common cases, and for the others , a few manual adjustments should fix it.</p>
-</div>
-<h1 id="downloading">Downloading<a class="headerlink" href="#downloading" title="Permanent link">&para;</a></h1>
-<!-- ## The `Context` -->
-
-<!-- Let's start by fetching the number of datasets in ESGF using the `Context` class. -->
-
-<!-- !!! example -->
-<!--     ```py -->
-<!--     import esgpull -->
-
-<!--     c = esgpull.Context() -->
-<!--     print(c.hits) -->
-<!--     ``` -->
-
-<!--     > [1509382] -->
-
-<!-- Here we just printed the number of datasets that can be downloaded. It is displayed as a list of a single number since it is the result of the _first query_. -->
-
-<!-- In fact, we only sent the query to a single index node[^1] (defaults to IPSL), we can get results from all nodes by setting the `distrib` attribute to `True`. -->
-<!-- This will under the hood still send a single query, but that one will be sent to other nodes before coming back. -->
-
-<!-- !!! warning inline end "" -->
-<!--     Using `distrib=True` significantly increases response time. -->
-<!-- ```py -->
-<!-- c.distrib = True -->
-<!-- print(c.hits) -->
-<!-- ``` -->
-
-<!-- ### Narrowing down the results -->
-
-<!-- To reduce the number of search results, _facets_ that you actually require, and that is currently done -->
-
-<!-- [^1]: An index node is ... -->
+<h2 id="data-discovery">Data discovery<a class="headerlink" href="#data-discovery" title="Permanent link">&para;</a></h2>
+<p>Look at the <a href="/search">data discovery</a> page for more information.</p>
+<h2 id="downloading">Downloading<a class="headerlink" href="#downloading" title="Permanent link">&para;</a></h2>
+<p>Loop at the <a href="/download">download</a> page for more information.</p>
 
 
 
 
-              
-            </article>
-            
+
+                
+              </article>
+            </div>
+          
+          
   <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
 
-          </div>
         </div>
         
           <a href="#" class="md-top md-icon" data-md-component="top" hidden>
@@ -834,6 +444,21 @@ Both are done through the <code>esgpull search</code> command.</p>
         </a>
       
       
+        
+        <a href="../search/" class="md-footer__link md-footer__link--next" aria-label="Next: Data discovery" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Data discovery
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
     </nav>
   
   <div class="md-footer-meta md-typeset">
@@ -857,10 +482,10 @@ Both are done through the <code>esgpull search</code> command.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["toc.follow", "header.autohide", "navigation.top", "navigation.instant", "content.tabs.link", "content.code.annotate"], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["toc.follow", "header.autohide", "navigation.top", "navigation.instant", "content.tabs.link", "content.code.annotate"], "search": "../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      <script src="../assets/javascripts/bundle.078830c0.min.js"></script>
       
     
   </body>
