@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
@@ -398,15 +398,23 @@
 <p>This document covers a few ways to install <code>esgpull</code>, a necessary first step into being able search and download <abbr title="Earth System Grid Federation">ESGF</abbr> datasets.</p>
 <h2 id="pip-github">pip + github<a class="headerlink" href="#pip-github" title="Permanent link">&para;</a></h2>
 <p>Run this command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip install git+ssh://git@github.com/svenrdz/esg-pull
+<div class="highlight"><span class="filename">Install esgpull from pip</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip install git+ssh://git@github.com/svenrdz/esg-pull
 </code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Initialize the database and working directories</p>
+<p>The <code>init</code> command sets up the directories and files required for <code>esgpull</code> to work correctly.</p>
+<p>It also fetches and stores the full vocabulary of <em>facets</em> from <abbr title="Earth System Grid Federation">ESGF</abbr> index nodes and store it locally.</p>
+<p>It will take a few minutes to complete but only needs to be run once.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>esgpull init
+</code></pre></div>
+</div>
 <h2 id="get-the-source-code">Get the source code<a class="headerlink" href="#get-the-source-code" title="Permanent link">&para;</a></h2>
 <p>Esgpull is developed and maintained on GitHub, you can clone the public repository:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git clone git@github.com:svenrdz/esg-pull
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git clone git@github.com:svenrdz/esg-pull
 </code></pre></div>
 <p>The source can now be installed using <code>pip</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cd esg-pull
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>python -m pip install .
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>cd esg-pull
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>python -m pip install .
 </code></pre></div>
 <h3 id="makefile">Makefile<a class="headerlink" href="#makefile" title="Permanent link">&para;</a></h3>
 <p>You can otherwise install the source using the targets defined in the <code>Makefile</code>:</p>
