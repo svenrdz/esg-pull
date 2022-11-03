@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.7">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.7">
     
     
       
@@ -493,7 +493,7 @@ Both are done through the <code>esgpull search</code> command.</p>
 </code></pre></div></p>
 </details>
 <h2 id="free-text-search">Free-text search<a class="headerlink" href="#free-text-search" title="Permanent link">&para;</a></h2>
-<p><em>Free-text search</em> is performed on any term <em>not</em> using the <code>&lt;name&gt;:&lt;value&gt;</code> syntax. Each term is sent to the <abbr title="Earth System Grid Federation">ESGF</abbr> search API, which uses <a href="https://fr.wikipedia.org/wiki/Apache_Solr">Apache Solr</a> to match results.</p>
+<p><em>Free-text search</em> is performed on any term <em>not</em> using the <code>&lt;name&gt;:&lt;value&gt;</code> syntax. Each term is sent to the ESGF search API, which uses <a href="https://fr.wikipedia.org/wiki/Apache_Solr">Apache Solr</a> to match results.</p>
 <div class="admonition warning">
 <p class="admonition-title">Solr syntax</p>
 <p><em>Solr</em> will always try to match any of the search terms.</p>
@@ -526,7 +526,7 @@ Both are done through the <code>esgpull search</code> command.</p>
 <h2 id="selection-files">Selection files<a class="headerlink" href="#selection-files" title="Permanent link">&para;</a></h2>
 <p>While the search command is an already powerful tool for data discovery, its limitations come up quite often. Overcoming those limitations is the primary reason for using <strong>selection files</strong>, a multi-request description syntax.</p>
 <p>With its <strong>subrequests</strong>, a selection file is conceptually similar to a <em>single-level tree structure</em>, for which each subrequest is a leaf that specializes the root request.</p>
-<p>The number of requests sent to <abbr title="Earth System Grid Federation">ESGF</abbr> after expanding the <em>subrequests</em> is equal to the number of <em>subrequests</em>.</p>
+<p>The number of requests sent to ESGF after expanding the <em>subrequests</em> is equal to the number of <em>subrequests</em>.</p>
 <p>A selection file is written using either <a href="https://yaml.org/spec/1.0">Yaml/1.0</a> or <a href="https://www.json.org/">Json</a>, Yaml is recommended for its human-readable syntax.</p>
 <div class="admonition note">
 <p class="admonition-title">Syntax Rules</p>
