@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.7">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
@@ -17,10 +17,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.20d9efc8.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.472b142f.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.08040f6c.min.css">
         
       
       
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pip-github" class="md-skip">
+        <a href="#conda" class="md-skip">
           Skip to content
         </a>
       
@@ -106,6 +106,7 @@
         
           
           
+          
           <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
@@ -113,6 +114,7 @@
             </label>
           
         
+          
           
           
           <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
@@ -248,8 +250,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pip-github" class="md-nav__link">
-    pip + github
+  <a href="#conda" class="md-nav__link">
+    conda
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pip" class="md-nav__link">
+    pip
   </a>
   
 </li>
@@ -258,19 +267,6 @@
   <a href="#get-the-source-code" class="md-nav__link">
     Get the source code
   </a>
-  
-    <nav class="md-nav" aria-label="Get the source code">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#makefile" class="md-nav__link">
-    Makefile
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -352,8 +348,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pip-github" class="md-nav__link">
-    pip + github
+  <a href="#conda" class="md-nav__link">
+    conda
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pip" class="md-nav__link">
+    pip
   </a>
   
 </li>
@@ -362,19 +365,6 @@
   <a href="#get-the-source-code" class="md-nav__link">
     Get the source code
   </a>
-  
-    <nav class="md-nav" aria-label="Get the source code">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#makefile" class="md-nav__link">
-    Makefile
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -396,32 +386,32 @@
   <h1>Installation</h1>
 
 <p>This document covers a few ways to install <code>esgpull</code>, a necessary first step into being able search and download ESGF datasets.</p>
-<h2 id="pip-github">pip + github<a class="headerlink" href="#pip-github" title="Permanent link">&para;</a></h2>
+<h2 id="conda">conda<a class="headerlink" href="#conda" title="Permanent link">&para;</a></h2>
+<p>The recommended way to install using <code>conda</code> is to create a fresh environment using <code>python &gt;= 3.10</code>, then install the package with both <code>conda-forge</code> and <code>ipsl</code> channels:</p>
+<div class="highlight"><span class="filename">Install esgpull on a fresh conda environment</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>conda create -n esgpull <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.10
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>conda activate esgpull
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>conda install esgpull -c conda-forge -c ipsl
+</code></pre></div>
+<h2 id="pip">pip<a class="headerlink" href="#pip" title="Permanent link">&para;</a></h2>
 <p>Run this command:</p>
-<div class="highlight"><span class="filename">Install esgpull from pip</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip install git+ssh://git@github.com/svenrdz/esg-pull
+<div class="highlight"><span class="filename">Install esgpull from pip</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip install git+ssh://git@github.com/svenrdz/esg-pull
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Initialize the database and working directories</p>
 <p>The <code>init</code> command sets up the directories and files required for <code>esgpull</code> to work correctly.</p>
 <p>It also fetches and stores the full vocabulary of <em>facets</em> from ESGF index nodes and store it locally.</p>
 <p>It will take a few minutes to complete but only needs to be run once.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>esgpull init
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>esgpull init
 </code></pre></div>
 </div>
 <h2 id="get-the-source-code">Get the source code<a class="headerlink" href="#get-the-source-code" title="Permanent link">&para;</a></h2>
 <p>Esgpull is developed and maintained on GitHub, you can clone the public repository:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git clone git@github.com:svenrdz/esg-pull
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git clone https://github.com/svenrdz/esg-pull.git
 </code></pre></div>
 <p>The source can now be installed using <code>pip</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>cd esg-pull
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>python -m pip install .
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>cd esg-pull
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>python -m pip install .
 </code></pre></div>
-<h3 id="makefile">Makefile<a class="headerlink" href="#makefile" title="Permanent link">&para;</a></h3>
-<p>You can otherwise install the source using the targets defined in the <code>Makefile</code>:</p>
-<ul>
-<li><code>make install</code> for a regular installation,</li>
-<li><code>make develop</code> to install additional dependencies required for contribution</li>
-</ul>
 
 
 
@@ -505,7 +495,7 @@
     <script id="__config" type="application/json">{"base": "..", "features": ["toc.follow", "header.autohide", "navigation.top", "navigation.instant", "content.tabs.link", "content.code.annotate"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.8492ddcf.min.js"></script>
+      <script src="../assets/javascripts/bundle.d6c3db9e.min.js"></script>
       
     
   </body>
