@@ -455,18 +455,6 @@
     VARCHAR sha
   }
 
-  tag_query {
-    INTEGER tag_id PK
-    INTEGER query_id PK
-  }
-
-  tag {
-    VARCHAR name
-    VARCHAR description
-    INTEGER id PK
-    VARCHAR sha
-  }
-
   file {
     VARCHAR file_id
     VARCHAR dataset_id
@@ -489,6 +477,18 @@
     INTEGER file_id PK
   }
 
+  query_tag {
+    INTEGER query_id PK
+    INTEGER tag_id PK
+  }
+
+  tag {
+    VARCHAR name
+    TEXT description
+    INTEGER id PK
+    VARCHAR sha
+  }
+
   query {
     BOOLEAN transient
     VARCHAR require
@@ -500,10 +500,10 @@
 
   options  }|--|| query : "options_id"
   select  }|--|| query : "select_id"
+  tag  }|--|| query_tag : "tag_id"
+  query  }|--|| query_tag : "query_id"
   query  }|--|| query_file : "query_id"
   file  }|--|| query_file : "file_id"
-  tag  }|--|| tag_query : "tag_id"
-  query  }|--|| tag_query : "query_id"
   select  }|--|| select_facet : "select_id"
   facet  }|--|| select_facet : "facet_id"</code></pre>
 <h2 id="exemple-de-queries">Exemple de queries<a class="headerlink" href="#exemple-de-queries" title="Permanent link">&para;</a></h2>
