@@ -455,6 +455,18 @@
     VARCHAR sha
   }
 
+  tag_query {
+    INTEGER tag_id PK
+    INTEGER query_id PK
+  }
+
+  tag {
+    VARCHAR name
+    VARCHAR description
+    INTEGER id PK
+    VARCHAR sha
+  }
+
   file {
     VARCHAR file_id
     VARCHAR dataset_id
@@ -490,6 +502,8 @@
   select  }|--|| query : "select_id"
   query  }|--|| query_file : "query_id"
   file  }|--|| query_file : "file_id"
+  tag  }|--|| tag_query : "tag_id"
+  query  }|--|| tag_query : "query_id"
   select  }|--|| select_facet : "select_id"
   facet  }|--|| select_facet : "facet_id"</code></pre>
 <h2 id="exemple-de-queries">Exemple de queries<a class="headerlink" href="#exemple-de-queries" title="Permanent link">&para;</a></h2>
