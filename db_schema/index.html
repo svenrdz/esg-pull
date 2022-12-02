@@ -308,12 +308,25 @@
     Apres (query-centric)
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#v3" class="md-nav__link">
-    v3
+    <nav class="md-nav" aria-label="Apres (query-centric)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mcd" class="md-nav__link">
+    MCD
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mld" class="md-nav__link">
+    MLD
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -372,61 +385,68 @@
     string version_num PK
   }</code></pre>
 <h2 id="apres-query-centric">Apres (query-centric)<a class="headerlink" href="#apres-query-centric" title="Permanent link">&para;</a></h2>
+<h3 id="mcd">MCD<a class="headerlink" href="#mcd" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>erDiagram
+  options {
+    VARCHAR distrib
+    VARCHAR latest
+    VARCHAR replica
+    VARCHAR retracted
+    INTEGER id PK
+    VARCHAR sha
+  }
+
+  facet {
+    VARCHAR name
+    VARCHAR value
+    INTEGER id PK
+    VARCHAR sha
+  }
+
+  select {
+    INTEGER id PK
+    VARCHAR sha
+  }
+
   file {
-    int id PK
-    string file_id "UNIQUE"
-    string dataset_id
-    string master_id
-    string url
-    string version
-    string filename
-    string local_path
-    string data_node
-    string checksum
-    string checksum_type
-    int size
-    enum status "queued started done error cancelled"
-    datetime last_updated
-  }
-
-  param {
-    int id PK
-    string name
-    string value
-    datetime last_updated
-  }
-
-  version {
-    string version_num PK
-  }
-
-  query {
-    int id PK
-    int hash "computed from select&amp;options"
-    bool transient
-    string require "NULLABLE"
-    json select "facets (extra table with links to param?)"
-    json options
+    VARCHAR file_id
+    VARCHAR dataset_id
+    VARCHAR master_id
+    VARCHAR url
+    VARCHAR version
+    VARCHAR filename
+    VARCHAR local_path
+    VARCHAR data_node
+    VARCHAR checksum
+    VARCHAR checksum_type
+    INTEGER size
+    VARCHAR status
+    INTEGER id PK
+    VARCHAR sha
   }
 
   tag {
-    int id PK
-    int query_id FK
-    string value
-    string description "NULLABLE"
+    VARCHAR name
+    TEXT description
+    INTEGER id PK
+    VARCHAR sha
   }
 
-  query_file {
-    int query_id PK
-    int file_id PK
+  query {
+    BOOLEAN transient
+    VARCHAR require
+    INTEGER options_id FK
+    INTEGER select_id FK
+    INTEGER id PK
+    VARCHAR sha
   }
 
-  query ||--o{ tag: has
-  query }o--o{ file: represents
-  query ||--o{ query_file: ""
-  file ||--o{ query_file: ""</code></pre>
-<h2 id="v3">v3<a class="headerlink" href="#v3" title="Permanent link">&para;</a></h2>
+  query  }|--|| options : "has"
+  query  }|--|| select : "selects"
+  tag  }o--|{ query : "describes"
+  query  }|--|{ file : "represents"
+  select  }|--|{ facet : "with"</code></pre>
+<h3 id="mld">MLD<a class="headerlink" href="#mld" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>erDiagram
 
   options {
