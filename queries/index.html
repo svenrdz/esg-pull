@@ -9,22 +9,24 @@
       
       
       
+        <link rel="prev" href="../quickstart/">
       
-        <link rel="next" href="installation/">
       
-      <link rel="icon" href="assets/images/favicon.png">
+        <link rel="next" href="../search/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.10">
     
     
       
-        <title>esgpull documentation</title>
+        <title>Queries - esgpull documentation</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.0d440cfe.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.0d440cfe.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.2505c338.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
       
       
 
@@ -34,9 +36,9 @@
       
     
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -65,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#database-schema" class="md-skip">
           Skip to content
         </a>
       
@@ -79,7 +81,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="esgpull documentation" class="md-header__button md-logo" aria-label="esgpull documentation" data-md-component="logo">
+    <a href=".." title="esgpull documentation" class="md-header__button md-logo" aria-label="esgpull documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -98,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              esgpull
+              Queries
             
           </span>
         </div>
@@ -185,7 +187,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="esgpull documentation" class="md-nav__button md-logo" aria-label="esgpull documentation" data-md-component="logo">
+    <a href=".." title="esgpull documentation" class="md-nav__button md-logo" aria-label="esgpull documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -202,6 +204,51 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        esgpull
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart/" class="md-nav__link">
+        Quickstart
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -210,16 +257,14 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          esgpull
+          Queries
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="." class="md-nav__link md-nav__link--active">
-        esgpull
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Queries
       </a>
       
         
@@ -227,8 +272,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-  
-    
   
   
     <label class="md-nav__title" for="__toc">
@@ -238,22 +281,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#feature-highlight" class="md-nav__link">
-    Feature highlight
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setup" class="md-nav__link">
-    Setup
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quickstart" class="md-nav__link">
-    Quickstart
+  <a href="#database-schema" class="md-nav__link">
+    Database schema
   </a>
   
 </li>
@@ -274,52 +303,7 @@
   
   
     <li class="md-nav__item">
-      <a href="installation/" class="md-nav__link">
-        Installation
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="quickstart/" class="md-nav__link">
-        Quickstart
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="queries/" class="md-nav__link">
-        Queries
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="search/" class="md-nav__link">
+      <a href="../search/" class="md-nav__link">
         Data discovery
       </a>
     </li>
@@ -334,7 +318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="download/" class="md-nav__link">
+      <a href="../download/" class="md-nav__link">
         Download
       </a>
     </li>
@@ -358,8 +342,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -368,22 +350,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#feature-highlight" class="md-nav__link">
-    Feature highlight
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setup" class="md-nav__link">
-    Setup
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quickstart" class="md-nav__link">
-    Quickstart
+  <a href="#database-schema" class="md-nav__link">
+    Database schema
   </a>
   
 </li>
@@ -404,69 +372,86 @@
 
 
 
-<h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
-<p><code>esgpull</code> is a modern ESGF data management tool, bundled with a custom asynchronous interface with the <a href="https://esgf.github.io/esg-search/ESGF_Search_RESTful_API.html">ESGF Search API</a>.
-It handles scanning, downloading and updating <strong>datasets</strong>, <strong>files</strong> and <em>queries</em> from ESGF.</p>
-<!-- Its simple data model makes `esgpull` easy to use, it is completely possible to never download a single file and still find a use for it. -->
+  <h1>Queries</h1>
 
-<h2 id="feature-highlight">Feature highlight<a class="headerlink" href="#feature-highlight" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Simple syntax for fast data exploration</li>
-<li>Asynchronous download</li>
-<li>Highly configurable</li>
-</ul>
+<p>Queries are first-class in esgpull.</p>
+<h2 id="database-schema">Database schema<a class="headerlink" href="#database-schema" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
-<p class="admonition-title">Search datasets</p>
-<p><code>esgpull</code> allows multiple ways for searching ESGF data, with <strong>facet</strong> and <strong>free-text</strong> terms together with <strong>options</strong>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Facet terms</label><label for="__tabbed_1_2">Free-text terms</label><label for="__tabbed_1_3">Facets hints</label><label for="__tabbed_1_4">Hints</label><label for="__tabbed_1_5">Finer grain query</label><label for="__tabbed_1_6">Date filter</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p><div class="highlight"><span class="filename">Query every CMIP6 dataset using facet syntax</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span>project:CMIP6
-</code></pre></div>
-<img alt="esgpull search" src="esgpull_search_intro_1.svg" /></p>
+<p class="admonition-title">For reference</p>
 </div>
-<div class="tabbed-block">
-<p><div class="highlight"><span class="filename">Narrow down the results with free-text term 'temperature'</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span>project:CMIP6<span class="w"> </span>temperature
-</code></pre></div>
-<img alt="esgpull search" src="esgpull_search_intro_2.svg" /></p>
-</div>
-<div class="tabbed-block">
-<p><div class="highlight"><span class="filename">Find out which facets remain to be set with --facets</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span>project:CMIP6<span class="w"> </span>temperature<span class="w"> </span>--facets
-</code></pre></div>
-<img alt="esgpull search" src="esgpull_search_intro_3.svg" /></p>
-</div>
-<div class="tabbed-block">
-<p><div class="highlight"><span class="filename">Get every potential facet value for the current query with --hints</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span>project:CMIP6<span class="w"> </span>temperature<span class="w"> </span>--hints<span class="w"> </span>variable_id
-</code></pre></div>
-<img alt="esgpull search" src="esgpull_search_intro_4.svg" /></p>
-</div>
-<div class="tabbed-block">
-<p><div class="highlight"><span class="filename">Query all CMIP6 datasets with variable 'tas'</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span>project:CMIP6<span class="w"> </span>variable_id:tas
-</code></pre></div>
-<img alt="esgpull search" src="esgpull_search_intro_5.svg" /></p>
-</div>
-<div class="tabbed-block">
-<p><div class="highlight"><span class="filename">Query CMIP6 datasets with variable 'tas' published since Jan 1st, 2023</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span>project:CMIP6<span class="w"> </span>variable_id:tas<span class="w"> </span>--from<span class="w"> </span><span class="m">2023</span>-01-01
-</code></pre></div>
-<img alt="esgpull search" src="esgpull_search_intro_6.svg" /></p>
-</div>
-</div>
-</div>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Asynchronous downloads</p>
-<p>Downloads are done concurrently (up to a maximum) such that retrieval speed is maximized.</p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">SQLite database</p>
-<p>Each download is recorded in a SQLite database</p>
-</div>
-<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
-<p>Run <code>pip install esgpull</code> to install the latest release and its dependencies.</p>
-<p>Have a look at the <a href="installation">Installation page</a> for more ways to install.</p>
-<h2 id="quickstart">Quickstart<a class="headerlink" href="#quickstart" title="Permanent link">&para;</a></h2>
-<p>Jump directly to the <a href="quickstart">Quickstart guide</a> to get to know how to use <code>esgpull</code>.</p>
-<!-- [ESGF portal]: https://esgf-node.ipsl.upmc.fr/search/cmip6-ipsl -->
+<pre class="mermaid"><code>erDiagram
+
+  query {
+    BOOLEAN tracked
+    VARCHAR require
+    VARCHAR options_sha FK
+    VARCHAR select_sha FK
+    VARCHAR sha PK
+  }
+
+  options {
+    VARCHAR distrib
+    VARCHAR latest
+    VARCHAR replica
+    VARCHAR retracted
+    VARCHAR sha PK
+  }
+
+  select {
+    VARCHAR sha PK
+  }
+
+  select_facet {
+    VARCHAR select_sha PK
+    VARCHAR facet_sha PK
+  }
+
+  facet {
+    VARCHAR name
+    VARCHAR value
+    VARCHAR sha PK
+  }
+
+  query_tag {
+    VARCHAR query_sha PK
+    VARCHAR tag_sha PK
+  }
+
+  tag {
+    VARCHAR name
+    TEXT description
+    VARCHAR sha PK
+  }
+
+  query_file {
+    VARCHAR query_sha PK
+    VARCHAR file_sha PK
+  }
+
+  file {
+    VARCHAR file_id
+    VARCHAR dataset_id
+    VARCHAR master_id
+    VARCHAR url
+    VARCHAR version
+    VARCHAR filename
+    VARCHAR local_path
+    VARCHAR data_node
+    VARCHAR checksum
+    VARCHAR checksum_type
+    INTEGER size
+    VARCHAR status
+    VARCHAR sha PK
+  }
+
+  query ||--|{ options : "options_sha"
+  query ||--|{ select : "select_sha"
+  select  }|--|| select_facet : "select_sha"
+  select_facet ||--|{ facet : "facet_sha"
+  query  }|--|| query_tag : "query_sha"
+  query_tag ||--|{ tag : "tag_sha"
+  query  }|--|| query_file : "query_sha"
+  query_file ||--|{ file : "file_sha"</code></pre>
 
 
 
@@ -511,10 +496,10 @@ It handles scanning, downloading and updating <strong>datasets</strong>, <strong
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["toc.follow", "header.autohide", "navigation.top", "navigation.instant", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["toc.follow", "header.autohide", "navigation.top", "navigation.instant", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.6df46069.min.js"></script>
+      <script src="../assets/javascripts/bundle.6df46069.min.js"></script>
       
     
   </body>
