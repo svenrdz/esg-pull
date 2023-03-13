@@ -9,13 +9,15 @@
       
       
       
+        <link rel="prev" href="../download/">
+      
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.10">
     
     
       
-        <title>Queries - esgpull documentation</title>
+        <title>Glossary - esgpull documentation</title>
       
     
     
@@ -62,11 +64,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#database-schema" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -96,7 +93,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Queries
+              Glossary
             
           </span>
         </div>
@@ -275,11 +272,19 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../glossary/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Glossary
       </a>
+      
     </li>
   
 
@@ -302,21 +307,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#database-schema" class="md-nav__link">
-    Database schema
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -331,86 +321,12 @@
 
 
 
-  <h1>Queries</h1>
-
-<p>Queries are first-class in esgpull.</p>
-<h2 id="database-schema">Database schema<a class="headerlink" href="#database-schema" title="Permanent link">&para;</a></h2>
-<div class="admonition tip">
-<p class="admonition-title">For reference</p>
-</div>
-<pre class="mermaid"><code>erDiagram
-
-  query {
-    BOOLEAN tracked
-    VARCHAR require
-    VARCHAR options_sha FK
-    VARCHAR select_sha FK
-    VARCHAR sha PK
-  }
-
-  options {
-    VARCHAR distrib
-    VARCHAR latest
-    VARCHAR replica
-    VARCHAR retracted
-    VARCHAR sha PK
-  }
-
-  select {
-    VARCHAR sha PK
-  }
-
-  select_facet {
-    VARCHAR select_sha PK
-    VARCHAR facet_sha PK
-  }
-
-  facet {
-    VARCHAR name
-    VARCHAR value
-    VARCHAR sha PK
-  }
-
-  query_tag {
-    VARCHAR query_sha PK
-    VARCHAR tag_sha PK
-  }
-
-  tag {
-    VARCHAR name
-    TEXT description
-    VARCHAR sha PK
-  }
-
-  query_file {
-    VARCHAR query_sha PK
-    VARCHAR file_sha PK
-  }
-
-  file {
-    VARCHAR file_id
-    VARCHAR dataset_id
-    VARCHAR master_id
-    VARCHAR url
-    VARCHAR version
-    VARCHAR filename
-    VARCHAR local_path
-    VARCHAR data_node
-    VARCHAR checksum
-    VARCHAR checksum_type
-    INTEGER size
-    VARCHAR status
-    VARCHAR sha PK
-  }
-
-  query ||--|{ options : "options_sha"
-  query ||--|{ select : "select_sha"
-  select  }|--|| select_facet : "select_sha"
-  select_facet ||--|{ facet : "facet_sha"
-  query  }|--|| query_tag : "query_sha"
-  query_tag ||--|{ tag : "tag_sha"
-  query  }|--|| query_file : "query_sha"
-  query_file ||--|{ file : "file_sha"</code></pre>
+<dl>
+<dt><strong>Dataset</strong></dt>
+<dd>collection of <em>files</em>. Described by metadata that follows its project's conventions.</dd>
+<dt><strong>Facet</strong></dt>
+<dd>basic element of a dataset's <em>metadata</em>. Pair of strings in the form <code>name:value</code>, equivalent to a python dictionary's item.</dd>
+</dl>
 
 
 

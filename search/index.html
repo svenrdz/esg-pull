@@ -321,13 +321,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#selection-files" class="md-nav__link">
-    Selection files
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -359,7 +352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../glossary.md" class="md-nav__link">
+      <a href="../glossary/" class="md-nav__link">
         Glossary
       </a>
     </li>
@@ -427,13 +420,6 @@
         <li class="md-nav__item">
   <a href="#case-sensitivity" class="md-nav__link">
     Case sensitivity
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#selection-files" class="md-nav__link">
-    Selection files
   </a>
   
 </li>
@@ -542,205 +528,215 @@ Both are done through the <code>esgpull search</code> command.</p>
 <h2 id="case-sensitivity">Case sensitivity<a class="headerlink" href="#case-sensitivity" title="Permanent link">&para;</a></h2>
 <p>For <em>facet search</em>, the case must match exactly, so <code>project:cmip6</code> will give entirely different results than <code>project:CMIP6</code>.</p>
 <p>In the case of <em>free-text search</em>, the opposite is true, case is entirely insensitive, and may lead to funky results.</p>
-<h2 id="selection-files">Selection files<a class="headerlink" href="#selection-files" title="Permanent link">&para;</a></h2>
-<p>While the search command is an already powerful tool for data discovery, its limitations come up quite often. Overcoming those limitations is the primary reason for using <strong>selection files</strong>, a multi-request description syntax.</p>
-<p>With its <strong>subrequests</strong>, a selection file is conceptually similar to a <em>single-level tree structure</em>, for which each subrequest is a leaf that specializes the root request.</p>
-<p>The number of requests sent to ESGF after expanding the <em>subrequests</em> is equal to the number of <em>subrequests</em>.</p>
-<p>A selection file is written using either <a href="https://yaml.org/spec/1.0">Yaml/1.0</a> or <a href="https://www.json.org/">Json</a>, Yaml is recommended for its human-readable syntax.</p>
-<div class="admonition note">
-<p class="admonition-title">Syntax Rules</p>
-<ol>
-<li>
-<dl>
-<dt>key/value pair ⇒ <strong>facet search</strong> term</dt>
-<dd><div class="grid">
-    <div class="highlight"><span class="filename">Yaml</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nt">&lt;name&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values&gt;</span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Json</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">{</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span><span class="nt">&quot;&lt;name&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values&gt;&quot;</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="p">}</span>
-</code></pre></div>
-</div></dd>
-</dl>
-</li>
-<li>
-<dl>
-<dt><code>query</code> keyword ⇒ <strong>free-text</strong></dt>
-<dd><div class="grid">
-    <div class="highlight"><span class="filename">Yaml</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;free-text&gt;</span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Json</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">{</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;free-text&gt;&quot;</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="p">}</span>
-</code></pre></div>
-</div></dd>
-</dl>
-</li>
-<li>
-<dl>
-<dt><code>requests</code> keyword ⇒ <strong>subrequest</strong> list</dt>
-<dd><div class="grid">
-    <div class="highlight"><span class="filename">Yaml</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nt">requests</span><span class="p">:</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;request_1&gt;</span>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;request_2&gt;</span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Json</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="p">{</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="nt">&quot;requests&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">    </span><span class="s2">&quot;&lt;request_1&gt;&quot;</span><span class="p">,</span>
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">    </span><span class="s2">&quot;&lt;request_2&gt;&quot;</span>
-<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="p">}</span>
-</code></pre></div>
-</div></dd>
-</dl>
-</li>
-<li>
-<dl>
-<dt><em>subrequests</em> accept <strong>only</strong> facets or free-text (nesting disallowed)</dt>
-<dd><div class="grid">
-    <div class="highlight"><span class="filename">Yaml</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nt">requests</span><span class="p">:</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_1&gt;</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">    </span><span class="nt">&lt;name_2&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_2&gt;</span>
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">    </span><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;free-text&gt;</span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Json</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="p">{</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">  </span><span class="nt">&quot;requests&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">      </span><span class="nt">&quot;&lt;name_1&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_1&gt;&quot;</span><span class="p">,</span>
-<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">      </span><span class="nt">&quot;&lt;name_2&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_2&gt;&quot;</span><span class="p">,</span>
-<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">      </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;free-text&gt;&quot;</span>
-<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="p">}</span>
-</code></pre></div>
-</div></dd>
-</dl>
-</li>
-<li>
-<dl>
-<dt>each <em>subquery</em> <strong>inherits</strong> the root request terms</dt>
-<dd><div class="grid">
-    <div class="highlight"><span class="filename">Yaml</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_1&gt;</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="nt">requests</span><span class="p">:</span>
-<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">&lt;name_2&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_2&gt;</span>
-<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">&lt;name_3&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_3&gt;</span>
-<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;free-text&gt;</span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Json</span><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="p">{</span>
-<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">  </span><span class="nt">&quot;&lt;name_1&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_1&gt;&quot;</span><span class="p">,</span>
-<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">  </span><span class="nt">&quot;requests&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="w">      </span><span class="nt">&quot;&lt;name_2&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_2&gt;&quot;</span>
-<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="w">      </span><span class="nt">&quot;&lt;name_3&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_3&gt;&quot;</span>
-<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="w">      </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;free-text&gt;&quot;</span>
-<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="p">}</span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Expanded query 1</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_1&gt;</span>
-<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="nt">&lt;name_2&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_2&gt;</span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Expanded query 1</span><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="p">{</span>
-<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">  </span><span class="nt">&quot;&lt;name_1&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_1&gt;&quot;</span><span class="p">,</span>
-<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">  </span><span class="nt">&quot;&lt;name_2&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_2&gt;&quot;</span>
-<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="p">}</span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Expanded query 2</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_1&gt;</span>
-<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="nt">&lt;name_3&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_3&gt;</span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Expanded query 2</span><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="p">{</span>
-<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">  </span><span class="nt">&quot;&lt;name_1&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_1&gt;&quot;</span><span class="p">,</span>
-<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w">  </span><span class="nt">&quot;&lt;name_3&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_3&gt;&quot;</span>
-<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="p">}</span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Expanded query 3</span><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_1&gt;</span>
-<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;free-text&gt;</span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Expanded query 3</span><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="p">{</span>
-<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">  </span><span class="nt">&quot;&lt;name_1&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_1&gt;&quot;</span><span class="p">,</span>
-<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">  </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;free-text&gt;&quot;</span>
-<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="p">}</span>
-</code></pre></div>
-</div></dd>
-</dl>
-</li>
-<li>
-<dl>
-<dt><em>prefixing</em> a name with <code>+</code> ⇒ <em>append</em> values to the root request homonym term</dt>
-<dd><div class="grid">
-    <div class="highlight"><span class="filename">Yaml</span><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_1&gt;</span>
-<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="nt">requests</span><span class="p">:</span>
-<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_replaced&gt;</span>
-<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="w">    </span><span class="nt">&lt;name_2&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_2&gt;</span>
-<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">+&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_appended&gt;</span>
-<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">&lt;name_3&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_3&gt;</span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Json</span><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="p">{</span>
-<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="w">  </span><span class="nt">&quot;&lt;name_1&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_1&gt;&quot;</span><span class="p">,</span>
-<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="w">  </span><span class="nt">&quot;requests&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="w">      </span><span class="nt">&quot;&lt;name_1&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_replaced&gt;&quot;</span><span class="p">,</span>
-<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="w">      </span><span class="nt">&quot;&lt;name_2&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_2&gt;&quot;</span>
-<a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a><span class="w">      </span><span class="nt">&quot;+&lt;name_1&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_appended&gt;&quot;</span>
-<a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-31-12" name="__codelineno-31-12" href="#__codelineno-31-12"></a><span class="w">      </span><span class="nt">&quot;&lt;name_3&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_3&gt;&quot;</span>
-<a id="__codelineno-31-13" name="__codelineno-31-13" href="#__codelineno-31-13"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-31-14" name="__codelineno-31-14" href="#__codelineno-31-14"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-31-15" name="__codelineno-31-15" href="#__codelineno-31-15"></a><span class="p">}</span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Expanded request 1</span><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_replaced&gt;</span>
-<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="nt">&lt;name_2&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_2&gt;</span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Expanded request 1</span><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="p">{</span>
-<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="w">  </span><span class="nt">&quot;&lt;name_1&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_replaced&gt;&quot;</span><span class="p">,</span>
-<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="w">  </span><span class="nt">&quot;&lt;name_2&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_2&gt;&quot;</span>
-<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="p">}</span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Expanded request 2</span><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_1&gt;,&lt;values_appended&gt;</span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Expanded request 2</span><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="p">{</span>
-<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">  </span><span class="nt">&quot;&lt;name_1&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_1&gt;,&lt;values_appended&gt;&quot;</span>
-<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="p">}</span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Expanded request 3</span><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="nt">&lt;name_1&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_1&gt;</span>
-<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="nt">&lt;name_3&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;values_3&gt;</span>
-</code></pre></div>
-    <div class="highlight"><span class="filename">Expanded request 3</span><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="p">{</span>
-<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="w">  </span><span class="nt">&quot;&lt;name_1&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_1&gt;&quot;</span><span class="p">,</span>
-<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="w">  </span><span class="nt">&quot;&lt;name_3&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;values_3&gt;&quot;</span>
-<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="p">}</span>
-</code></pre></div>
-</div></dd>
-</dl>
-</li>
-</ol>
-</div>
-<div class="admonition example">
-<p class="admonition-title">Selection file for IPCC experiments on surface temperatures</p>
-<p><div class="highlight"><span class="filename">surface_temperature.yaml</span><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;surface</span><span class="nv"> </span><span class="s">AND</span><span class="nv"> </span><span class="s">temperature&quot;</span>
-<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="nt">requests</span><span class="p">:</span>
-<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMIP5</span>
-<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="w">    </span><span class="nt">experiment</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rcp*&quot;</span>
-<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMIP6</span>
-<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a><span class="w">    </span><span class="nt">experiment_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ssp*&quot;</span>
-</code></pre></div>
-<div class="highlight"><span class="filename">Search with selection file</span><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span>--selection-file<span class="w"> </span>surface_temperature.yaml<span class="w"> </span>--one
-</code></pre></div>
-<div class="result highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>Found 2346 datasets.
-<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>    ╷          ╷
-<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>  # │     size │ id
-<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>╶───┼──────────┼──────────────────────────────────────────────────────────────────────╴
-<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>  0 │ 363.9 GB │ cmip5.output1.CNRM-CERFACS.CNRM-CM5.rcp26.day.atmos.day.r1i1p1.v201…
-<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a>    ╵          ╵
-</code></pre></div></p>
-</div>
+<!-- ## Selection files -->
+<!---->
+<!-- While the search command is an already powerful tool for data discovery, its limitations come up quite often. Overcoming those limitations is the primary reason for using **selection files**, a multi-request description syntax. -->
+<!---->
+<!-- With its **subrequests**, a selection file is conceptually similar to a *single-level tree structure*, for which each subrequest is a leaf that specializes the root request. -->
+<!---->
+<!-- The number of requests sent to ESGF after expanding the *subrequests* is equal to the number of *subrequests*. -->
+<!---->
+<!-- A selection file is written using either [Yaml/1.0] or [Json], Yaml is recommended for its human-readable syntax. -->
+<!---->
+<!-- !!! note "Syntax Rules" -->
+<!--     1. key/value pair ⇒ **facet search** term -->
+<!--     :   <div class="grid"> -->
+<!--             ```yaml title="Yaml" -->
+<!--             <name>: <values> -->
+<!--             ``` -->
+<!--             ```json title="Json" -->
+<!--             { -->
+<!--               "<name>": "<values>" -->
+<!--             } -->
+<!--             ``` -->
+<!--         </div> -->
+<!---->
+<!--     2. `query` keyword ⇒ **free-text** -->
+<!--     :   <div class="grid"> -->
+<!--             ```yaml title="Yaml" -->
+<!--             query: <free-text> -->
+<!--             ``` -->
+<!--             ```json title="Json" -->
+<!--             { -->
+<!--               "query": "<free-text>" -->
+<!--             } -->
+<!--             ``` -->
+<!--         </div> -->
+<!---->
+<!--     3. `requests` keyword ⇒ **subrequest** list -->
+<!--     :   <div class="grid"> -->
+<!--             ```yaml title="Yaml" -->
+<!--             requests: -->
+<!--               - <request_1> -->
+<!--               - <request_2> -->
+<!--             ``` -->
+<!--             ```json title="Json" -->
+<!--             { -->
+<!--               "requests": [ -->
+<!--                 "<request_1>", -->
+<!--                 "<request_2>" -->
+<!--               ] -->
+<!--             } -->
+<!--             ``` -->
+<!--         </div> -->
+<!---->
+<!--     4. *subrequests* accept **only** facets or free-text (nesting disallowed) -->
+<!--     :   <div class="grid"> -->
+<!--             ```yaml title="Yaml" -->
+<!--             requests: -->
+<!--               - <name_1>: <values_1> -->
+<!--                 <name_2>: <values_2> -->
+<!--                 query: <free-text> -->
+<!--             ``` -->
+<!--             ```json title="Json" -->
+<!--             { -->
+<!--               "requests": [ -->
+<!--                 { -->
+<!--                   "<name_1>": "<values_1>", -->
+<!--                   "<name_2>": "<values_2>", -->
+<!--                   "query": "<free-text>" -->
+<!--                 } -->
+<!--               ] -->
+<!--             } -->
+<!--             ``` -->
+<!--         </div> -->
+<!---->
+<!--     5. each *subquery* **inherits** the root request terms -->
+<!--     :   <div class="grid"> -->
+<!--             ```yaml title="Yaml" -->
+<!--             <name_1>: <values_1> -->
+<!--             requests: -->
+<!--               - <name_2>: <values_2> -->
+<!--               - <name_3>: <values_3> -->
+<!--               - query: <free-text> -->
+<!--             ``` -->
+<!--             ```json title="Json" -->
+<!--             { -->
+<!--               "<name_1>": "<values_1>", -->
+<!--               "requests": [ -->
+<!--                 { -->
+<!--                   "<name_2>": "<values_2>" -->
+<!--                 }, -->
+<!--                 { -->
+<!--                   "<name_3>": "<values_3>" -->
+<!--                 }, -->
+<!--                 { -->
+<!--                   "query": "<free-text>" -->
+<!--                 } -->
+<!--               ] -->
+<!--             } -->
+<!--             ``` -->
+<!--             ```yaml title="Expanded query 1" -->
+<!--             <name_1>: <values_1> -->
+<!--             <name_2>: <values_2> -->
+<!--             ``` -->
+<!--             ```json title="Expanded query 1" -->
+<!--             { -->
+<!--               "<name_1>": "<values_1>", -->
+<!--               "<name_2>": "<values_2>" -->
+<!--             } -->
+<!--             ``` -->
+<!--             ```yaml title="Expanded query 2" -->
+<!--             <name_1>: <values_1> -->
+<!--             <name_3>: <values_3> -->
+<!--             ``` -->
+<!--             ```json title="Expanded query 2" -->
+<!--             { -->
+<!--               "<name_1>": "<values_1>", -->
+<!--               "<name_3>": "<values_3>" -->
+<!--             } -->
+<!--             ``` -->
+<!--             ```yaml title="Expanded query 3" -->
+<!--             <name_1>: <values_1> -->
+<!--             query: <free-text> -->
+<!--             ``` -->
+<!--             ```json title="Expanded query 3" -->
+<!--             { -->
+<!--               "<name_1>": "<values_1>", -->
+<!--               "query": "<free-text>" -->
+<!--             } -->
+<!--             ``` -->
+<!--         </div> -->
+<!---->
+<!--     6. *prefixing* a name with `+` ⇒ *append* values to the root request homonym term -->
+<!--     :   <div class="grid"> -->
+<!--             ```yaml title="Yaml" -->
+<!--             <name_1>: <values_1> -->
+<!--             requests: -->
+<!--               - <name_1>: <values_replaced> -->
+<!--                 <name_2>: <values_2> -->
+<!--               - +<name_1>: <values_appended> -->
+<!--               - <name_3>: <values_3> -->
+<!--             ``` -->
+<!--             ```json title="Json" -->
+<!--             { -->
+<!--               "<name_1>": "<values_1>", -->
+<!--               "requests": [ -->
+<!--                 { -->
+<!--                   "<name_1>": "<values_replaced>", -->
+<!--                   "<name_2>": "<values_2>" -->
+<!--                 }, -->
+<!--                 { -->
+<!--                   "+<name_1>": "<values_appended>" -->
+<!--                 }, -->
+<!--                 { -->
+<!--                   "<name_3>": "<values_3>" -->
+<!--                 } -->
+<!--               ] -->
+<!--             } -->
+<!--             ``` -->
+<!--             ```yaml title="Expanded request 1" -->
+<!--             <name_1>: <values_replaced> -->
+<!--             <name_2>: <values_2> -->
+<!--             ``` -->
+<!--             ```json title="Expanded request 1" -->
+<!--             { -->
+<!--               "<name_1>": "<values_replaced>", -->
+<!--               "<name_2>": "<values_2>" -->
+<!--             } -->
+<!--             ``` -->
+<!--             ```yaml title="Expanded request 2" -->
+<!--             <name_1>: <values_1>,<values_appended> -->
+<!--             ``` -->
+<!--             ```json title="Expanded request 2" -->
+<!--             { -->
+<!--               "<name_1>": "<values_1>,<values_appended>" -->
+<!--             } -->
+<!--             ``` -->
+<!--             ```yaml title="Expanded request 3" -->
+<!--             <name_1>: <values_1> -->
+<!--             <name_3>: <values_3> -->
+<!--             ``` -->
+<!--             ```json title="Expanded request 3" -->
+<!--             { -->
+<!--               "<name_1>": "<values_1>", -->
+<!--               "<name_3>": "<values_3>" -->
+<!--             } -->
+<!--             ``` -->
+<!--         </div> -->
+<!---->
+<!-- !!! example "Selection file for IPCC experiments on surface temperatures" -->
+<!---->
+<!--     ```yaml title="surface_temperature.yaml" -->
+<!--     query: "surface AND temperature" -->
+<!--     requests: -->
+<!--       - project: CMIP5 -->
+<!--         experiment: "rcp*" -->
+<!--       - project: CMIP6 -->
+<!--         experiment_id: "ssp*" -->
+<!--     ``` -->
+<!--     ```sh title="Search with selection file" -->
+<!--     esgpull search --selection-file surface_temperature.yaml --one -->
+<!--     ``` -->
+<!--     ```{.markdown .result} -->
+<!--     Found 2346 datasets. -->
+<!--         ╷          ╷ -->
+<!--       # │     size │ id -->
+<!--     ╶───┼──────────┼──────────────────────────────────────────────────────────────────────╴ -->
+<!--       0 │ 363.9 GB │ cmip5.output1.CNRM-CERFACS.CNRM-CM5.rcp26.day.atmos.day.r1i1p1.v201… -->
+<!--         ╵          ╵ -->
+<!--     ``` -->
+
 <!-- !!! tip "Synda users" -->
 
 <!--     Since the syntax is completely different from `synda` selection files, an undocumented tool called `translate` is in the repository. -->
