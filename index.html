@@ -13,7 +13,7 @@
         <link rel="next" href="installation/">
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.10">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.15">
     
     
       
@@ -21,10 +21,10 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.0d440cfe.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.113286f1.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.2505c338.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -403,7 +403,6 @@
                   
 
 
-
 <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
 <p><code>esgpull</code> is a modern ESGF data management tool, bundled with a custom asynchronous interface with the <a href="https://esgf.github.io/esg-search/ESGF_Search_RESTful_API.html">ESGF Search API</a>.
 It handles scanning, downloading and updating <strong>datasets</strong>, <strong>files</strong> and <em>queries</em> from ESGF.</p>
@@ -423,32 +422,32 @@ It handles scanning, downloading and updating <strong>datasets</strong>, <strong
 <div class="tabbed-block">
 <p><div class="highlight"><span class="filename">Query every CMIP6 dataset using facet syntax</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span>project:CMIP6
 </code></pre></div>
-<img alt="esgpull search" src="images/esgpull_search_intro_1.svg" /></p>
+<img alt="esgpull search" src="images/intro_1.svg" /></p>
 </div>
 <div class="tabbed-block">
 <p><div class="highlight"><span class="filename">Narrow down the results with free-text term 'temperature'</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span>project:CMIP6<span class="w"> </span>temperature
 </code></pre></div>
-<img alt="esgpull search" src="images/esgpull_search_intro_2.svg" /></p>
+<img alt="esgpull search" src="images/intro_2.svg" /></p>
 </div>
 <div class="tabbed-block">
 <p><div class="highlight"><span class="filename">Find out which facets remain to be set with --facets</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span>project:CMIP6<span class="w"> </span>temperature<span class="w"> </span>--facets
 </code></pre></div>
-<img alt="esgpull search" src="images/esgpull_search_intro_3.svg" /></p>
+<img alt="esgpull search" src="images/intro_3.svg" /></p>
 </div>
 <div class="tabbed-block">
 <p><div class="highlight"><span class="filename">Get every potential facet value for the current query with --hints</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span>project:CMIP6<span class="w"> </span>temperature<span class="w"> </span>--hints<span class="w"> </span>variable_id
 </code></pre></div>
-<img alt="esgpull search" src="images/esgpull_search_intro_4.svg" /></p>
+<img alt="esgpull search" src="images/intro_4.svg" /></p>
 </div>
 <div class="tabbed-block">
 <p><div class="highlight"><span class="filename">Query all CMIP6 datasets with variable 'tas'</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span>project:CMIP6<span class="w"> </span>variable_id:tas
 </code></pre></div>
-<img alt="esgpull search" src="images/esgpull_search_intro_5.svg" /></p>
+<img alt="esgpull search" src="images/intro_5.svg" /></p>
 </div>
 <div class="tabbed-block">
 <p><div class="highlight"><span class="filename">Query CMIP6 datasets with variable 'tas' published since Jan 1st, 2023</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span>project:CMIP6<span class="w"> </span>variable_id:tas<span class="w"> </span>--from<span class="w"> </span><span class="m">2023</span>-01-01
 </code></pre></div>
-<img alt="esgpull search" src="images/esgpull_search_intro_6.svg" /></p>
+<img alt="esgpull search" src="images/intro_6.svg" /></p>
 </div>
 </div>
 </div>
@@ -511,10 +510,10 @@ It handles scanning, downloading and updating <strong>datasets</strong>, <strong
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["toc.follow", "header.autohide", "navigation.top", "navigation.instant", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["toc.follow", "header.autohide", "navigation.top", "navigation.instant", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.6df46069.min.js"></script>
+      <script src="assets/javascripts/bundle.2a6f1dda.min.js"></script>
       
     
   </body>

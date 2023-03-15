@@ -15,7 +15,7 @@
         <link rel="next" href="../download/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.10">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.15">
     
     
       
@@ -23,10 +23,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.0d440cfe.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.113286f1.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -439,92 +439,54 @@
                   
 
 
-
   <h1>Data discovery</h1>
 
-<p>There are two ways to search for one or more datasets: <strong>facet</strong> and <strong>free-text</strong> search.
-Both are done through the <code>esgpull search</code> command.</p>
+<p>There are two ways to search for datasets with <code>esgpull</code>: <strong>facet</strong> and <strong>free-text</strong> search.
+Both are done through the <code>search</code> command.</p>
 <h2 id="facet-search">Facet search<a class="headerlink" href="#facet-search" title="Permanent link">&para;</a></h2>
 <p><em>Facet search</em> is performed with all terms using the facet syntax <code>&lt;name&gt;:&lt;value&gt;</code>, for which both name and value are matched exactly.</p>
-<p><div class="highlight"><span class="filename">Search CMIP6 datasets</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span>project:CMIP6<span class="w"> </span>--slice<span class="w"> </span><span class="m">3</span>
+<p><div class="highlight"><span class="filename">Search CMIP6 datasets</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span>project:CMIP6
 </code></pre></div>
-<div class="result highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Found 1539146 datasets.
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    ╷         ╷
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  # │    size │ id
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>╶───┼─────────┼────────────────────────────────────────────────────────────╴
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  0 │ 10.9 GB │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.3hr.hfls…
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  1 │  7.9 GB │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.3hr.clt.…
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  2 │ 11.1 GB │ CMIP6.CMIP.CNRM-CERFACS.CNRM-CM6-1.amip.r1i1p1f2.E3hrPt.c…
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    ╵         ╵
-</code></pre></div></p>
+<img alt="esgpull search" src="../images/search_1.svg" /></p>
 <h3 id="multiple-values-for-a-facet">Multiple values for a facet<a class="headerlink" href="#multiple-values-for-a-facet" title="Permanent link">&para;</a></h3>
-<p>Multiples values can be used, either by specifying the facet name for every value, or by separating each value with a <code>,</code> comma.</p>
-<div class="grid">
-    <div>
-        <div class="highlight"><span class="filename">Single variable c2h2</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span>variable_id:c2h2<span class="w"> </span>-0
+<p>Multiples values can be used by separating each value with a <code>,</code> comma.</p>
+<p><div class="highlight"><span class="filename">Single variable search</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span>variable_id:c2h2<span class="w"> </span>-0
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>esgpull<span class="w"> </span>search<span class="w"> </span>variable_id:c2h6<span class="w"> </span>-0
 </code></pre></div>
-        <div class="result highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Found 5 datasets.
+<img alt="esgpull search" src="../images/search_2.svg" />
+<img alt="esgpull search" src="../images/search_3.svg" /></p>
+<p><div class="highlight"><span class="filename">Combine both variables in a single search</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span>variable_id:c2h2,c2h6<span class="w"> </span>-0
 </code></pre></div>
-    </div>
-    <div>
-        <div class="highlight"><span class="filename">Single variable c2h6</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span>variable_id:c2h6<span class="w"> </span>-0
-</code></pre></div>
-        <div class="result highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Found 5 datasets.
-</code></pre></div>
-    </div>
+<img alt="esgpull search" src="../images/search_4.svg" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Using spaces "disconnects" values from the facet name</p>
+<p><img alt="esgpull search" src="../images/search_5.svg" /></p>
 </div>
-
-<p><div class="highlight"><span class="filename">Both variables c2h2 and c2h6</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span>variable_id:c2h2<span class="w"> </span>variable_id:c2h6<span class="w"> </span>-0
+<div class="admonition note">
+<p class="admonition-title">If you don't know the facets' names</p>
+<p><code>esgpull</code> provides a handy way to print out facet names that can be used to refine a query:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span>variable_id:c2h2,c2h6<span class="w"> </span>--facets
 </code></pre></div>
-<div class="result highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Found 10 datasets.
-</code></pre></div></p>
-<details class="warning">
-<summary>What facets can be used?</summary>
-<p><code>esgpull</code> provides a handy way to print out all facet names:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>esgpull<span class="w"> </span>facet
-</code></pre></div>
-<div class="markdown result highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="o">[</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="s1">&#39;Acknowledgement&#39;</span>,
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="s1">&#39;Campaign&#39;</span>,
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="s1">&#39;Conventions&#39;</span>,
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="s1">&#39;Period&#39;</span>,
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">  </span><span class="s1">&#39;Science Driver&#39;</span>,
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">  </span><span class="s1">&#39;access&#39;</span>,
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">  </span><span class="s1">&#39;activity&#39;</span>,
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">  </span><span class="s1">&#39;activity_drs&#39;</span>,
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">  </span><span class="s1">&#39;activity_id&#39;</span>,
-<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">  </span>...
-<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="o">]</span>
-</code></pre></div></p>
-</details>
+<img alt="esgpull search" src="../images/search_6.svg" /></p>
+<p>Using a facet that is <strong>not</strong> in this list will always result in a query with 0 corresponding datasets.</p>
+</div>
 <h2 id="free-text-search">Free-text search<a class="headerlink" href="#free-text-search" title="Permanent link">&para;</a></h2>
 <p><em>Free-text search</em> is performed on any term <em>not</em> using the <code>&lt;name&gt;:&lt;value&gt;</code> syntax. Each term is sent to the ESGF search API, which uses <a href="https://fr.wikipedia.org/wiki/Apache_Solr">Apache Solr</a> to match results.</p>
 <div class="admonition warning">
 <p class="admonition-title">Solr syntax</p>
 <p><em>Solr</em> will always try to match any of the search terms.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span>surface<span class="w"> </span>temperature<span class="w"> </span><span class="c1"># will match either `surface` or `temperature`</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span>surface<span class="w"> </span>temperature<span class="w"> </span><span class="c1"># will match either `surface` or `temperature`</span>
 </code></pre></div>
 <p>To make sure <strong>all</strong> the words are matched, terms must be separated with <code>AND</code> and written between quotes
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span><span class="s2">&quot;surface AND temperature&quot;</span><span class="w"> </span><span class="c1"># will match BOTH `surface` and `temperature`</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span><span class="s2">&quot;surface AND temperature&quot;</span><span class="w"> </span><span class="c1"># will match BOTH `surface` and `temperature`</span>
 </code></pre></div></p>
 </div>
 <h2 id="wildcard-syntax">Wildcard syntax<a class="headerlink" href="#wildcard-syntax" title="Permanent link">&para;</a></h2>
 <p>A <em>wildcard</em> <code>*</code> can be used in both facet (value only) and free-text search, allowing for more controllable search results.</p>
 <p>Note that on most shells, the wildcard symbol should be inside <code>"</code> quotes, to escape it from being expanded by the shell before <code>esgpull</code> receives any input.</p>
-<p><div class="highlight"><span class="filename">All initializations for areacella variable from piControl experiments</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span><span class="s2">&quot;member_id:r1i*p1f1&quot;</span><span class="w"> </span>table_id:fx<span class="w"> </span>variable_id:areacella<span class="w"> </span>experiment_id:piControl
+<p><div class="highlight"><span class="filename">All initializations for areacella variable from piControl experiments</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>esgpull<span class="w"> </span>search<span class="w"> </span><span class="s2">&quot;member_id:r1i*p1f1&quot;</span><span class="w"> </span>table_id:fx<span class="w"> </span>variable_id:areacella<span class="w"> </span>experiment_id:piControl
 </code></pre></div>
-<div class="result highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Found 6 datasets.
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    ╷         ╷
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>  # │    size │ id
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>╶───┼─────────┼────────────────────────────────────────────────────────────╴
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>  0 │ 28.5 kB │ CMIP6.CMIP.IPSL.IPSL-CM6A-LR.piControl.r1i2p1f1.fx.areace…
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>  1 │ 26.9 kB │ CMIP6.CMIP.IPSL.IPSL-CM6A-LR.piControl.r1i1p1f1.fx.areace…
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>  2 │ 26.9 kB │ CMIP6.CMIP.IPSL.IPSL-CM6A-LR.piControl.r1i1p1f1.fx.areace…
-<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>  3 │ 26.9 kB │ CMIP6.CMIP.IPSL.IPSL-CM6A-LR.piControl.r1i1p1f1.fx.areace…
-<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>  4 │ 28.6 kB │ CMIP6.CMIP.IPSL.IPSL-CM6A-LR.piControl.r1i1p1f1.fx.areace…
-<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>  5 │ 28.1 kB │ CMIP6.CMIP.IPSL.IPSL-CM5A2-INCA.piControl.r1i1p1f1.fx.are…
-<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>    ╵         ╵
-</code></pre></div></p>
+<img alt="esgpull search" src="../images/search_7.svg" /></p>
 <h2 id="case-sensitivity">Case sensitivity<a class="headerlink" href="#case-sensitivity" title="Permanent link">&para;</a></h2>
 <p>For <em>facet search</em>, the case must match exactly, so <code>project:cmip6</code> will give entirely different results than <code>project:CMIP6</code>.</p>
 <p>In the case of <em>free-text search</em>, the opposite is true, case is entirely insensitive, and may lead to funky results.</p>
@@ -786,10 +748,10 @@ Both are done through the <code>esgpull search</code> command.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["toc.follow", "header.autohide", "navigation.top", "navigation.instant", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["toc.follow", "header.autohide", "navigation.top", "navigation.instant", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.6df46069.min.js"></script>
+      <script src="../assets/javascripts/bundle.2a6f1dda.min.js"></script>
       
     
   </body>
